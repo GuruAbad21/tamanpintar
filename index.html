@@ -121,44 +121,44 @@
 
             /* Area Pemilihan Karakter & Kesulitan */
             #view-char-select {
-                padding: 0.5rem !important;
-                max-height: 96vh !important;
-                border-radius: 1.5rem !important;
+                padding: 0.75rem !important;
+                max-height: 94vh !important;
             }
             #char-title-text {
-                font-size: 1.15rem !important;
+                font-size: 1.25rem !important;
             }
             #char-subtitle-text {
-                display: none !important; /* Sembunyikan deskripsi tambahan agar menghemat ruang HP Lanskap */
+                font-size: 0.7rem !important;
             }
             #diff-setting-container {
-                padding: 0.25rem !important;
-                border-radius: 0.75rem !important;
+                padding: 0.35rem !important;
+                margin-bottom: 0.35rem !important;
+                border-radius: 1rem !important;
             }
             #diff-setting-container button {
-                padding-top: 0.25rem !important;
-                padding-bottom: 0.25rem !important;
-                font-size: 0.7rem !important;
+                padding-top: 0.35rem !important;
+                padding-bottom: 0.35rem !important;
+                font-size: 0.75rem !important;
                 border-radius: 0.5rem !important;
             }
             #char-selection-grid {
-                margin-bottom: 0.25rem !important;
+                margin-bottom: 0.35rem !important;
             }
             #char-selection-grid .flex-col {
-                padding: 0.25rem !important;
-                border-radius: 0.75rem !important;
-                max-height: 38vh !important;
+                padding: 0.35rem !important;
+                border-radius: 1rem !important;
+                max-height: 35vh !important;
             }
             #char-selection-grid .w-24, #char-selection-grid .w-18, #char-selection-grid .w-14 {
-                width: 2.75rem !important;
-                height: 2.75rem !important;
-                font-size: 1.35rem !important;
+                width: 3.5rem !important;
+                height: 3.5rem !important;
+                font-size: 1.75rem !important;
             }
             #view-char-select .max-w-xs button {
-                padding-top: 0.3rem !important;
-                padding-bottom: 0.3rem !important;
-                font-size: 0.7rem !important;
-                border-radius: 0.5rem !important;
+                padding-top: 0.35rem !important;
+                padding-bottom: 0.35rem !important;
+                font-size: 0.75rem !important;
+                border-radius: 0.75rem !important;
             }
         }
 
@@ -467,46 +467,42 @@
             </div>
         </div>
 
-        <!-- 1b. TAMPILAN PILIH KARAKTER/PROFESI & TINGKAT KESULITAN (TATA LETAK ULANG REVOLUSIONER ANTI-POTONG DI HP LANSKAP) -->
-        <div id="view-char-select" class="w-full max-w-5xl bg-white/60 backdrop-blur-md rounded-3xl p-3 sm:p-4 shadow-2xl border-4 border-white flex flex-col justify-between transition-all duration-300 hidden h-full max-h-[84vh] overflow-hidden min-h-0">
-            
-            <!-- Area Atas: Header Informasi Ringkas -->
-            <div class="text-center mb-1 flex-shrink-0">
-                <h2 class="text-base sm:text-lg font-extrabold text-indigo-950 dark:text-amber-300 transition-colors leading-none" id="char-title-text">Pengaturan Petualangan Belajar! 🌟</h2>
-                <p class="hidden sm:block text-[9px] text-slate-500 mt-0.5 leading-none" id="char-subtitle-text">Sesuaikan petualangan kuis terbaik untuk jagoan cilikmu.</p>
+        <!-- 1b. TAMPILAN PILIH KARAKTER/PROFESI & TINGKAT KESULITAN -->
+        <div id="view-char-select" class="w-full max-w-5xl bg-white/60 backdrop-blur-md rounded-3xl p-4 md:p-5 shadow-2xl border-4 border-white flex flex-col items-center transition-all duration-300 hidden max-h-[82vh] overflow-y-auto min-h-0">
+            <div class="text-center mb-2 flex-shrink-0">
+                <h2 class="text-lg md:text-xl font-extrabold text-indigo-950 transition-colors mb-0.5" id="char-title-text">Pengaturan Petualangan Belajar! 🌟</h2>
+                <p class="text-[9px] md:text-xs text-slate-600 transition-colors" id="char-subtitle-text">Pilih tingkat kesulitan kuis dan profesi impian untuk para pemain.</p>
             </div>
 
-            <!-- Area Tengah: Pengaturan Split-Screen (Split Kesulitan & Karakter dalam Baris Horizontal) -->
-            <div class="flex-grow flex flex-col sm:flex-row gap-3 items-stretch min-h-0 overflow-hidden w-full py-1">
-                
-                <!-- Sisi Kiri: Pemilihan Tingkat Kesulitan Secara Vertikal (Menghemat Tinggi Ruang HP Lanskap) -->
-                <div class="w-full sm:w-[28%] bg-white/85 dark:bg-slate-900/90 p-2 rounded-2xl border-2 border-indigo-100 dark:border-slate-800 flex flex-col justify-center shadow-inner flex-shrink-0 sm:flex-shrink">
-                    <span class="block text-[9px] md:text-[10px] font-black text-indigo-900 dark:text-indigo-300 mb-1.5 uppercase tracking-widest text-center" id="diff-setting-label">📶 KESULITAN:</span>
-                    <div class="flex flex-row sm:flex-col gap-1.5 w-full">
-                        <button id="btn-diff-easy" onclick="selectDifficulty('easy')" class="flex-1 py-1 px-1.5 rounded-xl text-[9px] sm:text-xs font-black border shadow-sm transition-all bounce-active flex items-center justify-center gap-1 bg-white text-emerald-800 border-emerald-200">
-                            <span>🟢</span> <span>Mudah</span>
-                        </button>
-                        <button id="btn-diff-medium" onclick="selectDifficulty('medium')" class="flex-1 py-1 px-1.5 rounded-xl text-[9px] sm:text-xs font-black border shadow-sm transition-all bounce-active flex items-center justify-center gap-1 bg-indigo-600 text-white border-indigo-600">
-                            <span>🟡</span> <span>Sedang</span>
-                        </button>
-                        <button id="btn-diff-hard" onclick="selectDifficulty('hard')" class="flex-1 py-1 px-1.5 rounded-xl text-[9px] sm:text-xs font-black border shadow-sm transition-all bounce-active flex items-center justify-center gap-1 bg-white text-rose-800 border-rose-200">
-                            <span>🔴</span> <span>Sulit</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Sisi Kanan: Tampilan Karakter/Profesi Pemain (Menyesuaikan Grid Dinamis untuk 1, 2, atau 4 Pemain) -->
-                <div id="char-selection-grid" class="w-full sm:w-[72%] flex items-center justify-center gap-2 overflow-y-auto min-h-0 max-h-[38vh] sm:max-h-full">
-                    <!-- Karakter diisi dinamis oleh JS -->
+            <!-- Bagian Pilihan Tingkat Kesulitan -->
+            <div class="w-full max-w-lg bg-white/80 p-2 rounded-2xl border-2 border-indigo-100 mb-2 flex flex-col items-center shadow-sm flex-shrink-0" id="diff-setting-container">
+                <span class="block text-[8px] md:text-[10px] font-black text-indigo-900 mb-0.5 uppercase tracking-widest transition-colors" id="diff-setting-label">📶 Tingkat Kesulitan:</span>
+                <div class="grid grid-cols-3 gap-1.5 w-full">
+                    <button id="btn-diff-easy" onclick="selectDifficulty('easy')" class="py-1 rounded-xl text-[9px] md:text-xs font-extrabold border-2 shadow-sm transition-all bounce-active flex flex-col items-center justify-center bg-white text-emerald-800 border-emerald-200 hover:border-emerald-400">
+                        <span class="text-base leading-none">🟢</span>
+                        <span>Mudah</span>
+                    </button>
+                    <button id="btn-diff-medium" onclick="selectDifficulty('medium')" class="py-1 rounded-xl text-[9px] md:text-xs font-extrabold border-2 shadow-sm transition-all bounce-active flex flex-col items-center justify-center bg-indigo-600 text-white border-indigo-600">
+                        <span class="text-base leading-none">🟡</span>
+                        <span>Sedang</span>
+                    </button>
+                    <button id="btn-diff-hard" onclick="selectDifficulty('hard')" class="py-1 rounded-xl text-[9px] md:text-xs font-extrabold border-2 shadow-sm transition-all bounce-active flex flex-col items-center justify-center bg-white text-rose-800 border-rose-200 hover:border-rose-400">
+                        <span class="text-base leading-none">🔴</span>
+                        <span>Sulit</span>
+                    </button>
                 </div>
             </div>
 
-            <!-- Area Bawah: Tombol Tindakan yang Selalu Terkunci di Wilayah Bawah Layar -->
-            <div class="flex gap-2.5 w-full max-w-sm mx-auto flex-shrink-0 pt-1.5 border-t border-slate-200/50 dark:border-slate-800/50">
-                <button onclick="cancelCharacterSelection()" class="flex-1 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-1.5 rounded-xl bounce-active text-[10px] sm:text-xs leading-none">
+            <!-- Grid Pemilih Karakter Dinamis -->
+            <div id="char-selection-grid" class="flex flex-wrap gap-2 justify-center w-full mb-2.5 min-h-0 overflow-y-auto">
+                <!-- Diisi dinamis lewat JS -->
+            </div>
+
+            <div class="flex gap-4 w-full max-w-xs flex-shrink-0">
+                <button onclick="cancelCharacterSelection()" class="flex-1 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-1.5 rounded-xl bounce-active text-[10px] md:text-xs">
                     ⬅️ Kembali
                 </button>
-                <button onclick="confirmAndStartGame()" class="flex-1 bg-gradient-to-b from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white font-extrabold py-1.5 rounded-xl shadow-md border-b-4 border-indigo-800 bounce-active text-[10px] sm:text-xs leading-none">
+                <button onclick="confirmAndStartGame()" class="flex-1 bg-gradient-to-b from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white font-extrabold py-1.5 rounded-xl shadow-md border-b-4 border-indigo-800 bounce-active text-[10px] md:text-xs">
                     Mulai Main! 🚀
                 </button>
             </div>
@@ -2012,7 +2008,7 @@
             totalQuestionsPerSession = count;
             
             for (let c of [5, 10, 999]) {
-                const btn = document.getElementById('btn-quest-' + c);
+                const btn = document.getElementById(`btn-quest-${c === 999 ? 'endless' : c}`);
                 if (c === count) {
                     btn.className = "py-2 rounded-xl text-xs font-bold border-2 shadow-sm transition-all duration-150 bounce-active bg-indigo-600 text-white border-indigo-600";
                 } else {
@@ -2304,7 +2300,6 @@
             }
         }
 
-        // --- DEKLARASI DETAIL GERBANG KEAMANAN ---
         function getDifficultyLabel(diff) {
             if (diff === 'easy') return "🟢 Mudah";
             if (diff === 'medium') return "🟡 Sedang";
@@ -2362,7 +2357,7 @@
                             <div class="grid grid-cols-4 gap-1">
                                 ${availableProfessions.map(prof => {
                                     const isSelected = (prof.id === playerProf.id);
-                                    const activeRing = isSelected ? 'ring-2 ring-indigo-500 scale-105 z-10' : 'opacity-85 hover:opacity-100';
+                                    const activeRing = isSelected ? 'ring-2 ring-indigo-500 scale-105 z-10' : 'opacity-80 hover:opacity-100';
                                     const profBtnSize = activePlayersCount === 4 ? 'h-7 w-7 text-sm' : 'h-8 w-8 text-base';
                                     return `
                                         <button onclick="changePlayerProfession(${i}, '${prof.id}')" 
@@ -2555,6 +2550,993 @@
 
         // Jalankan transisi tema waktu nyata secara periodik
         setInterval(checkAndApplyTimeBasedTheme, 5000);
+
+        // --- SELEKSI LEVEL & KESULITAN ---
+        function selectDifficulty(diff) {
+            initAudio(); 
+            playSound('click');
+            currentDifficulty = diff;
+            
+            ['easy', 'medium', 'hard'].forEach(d => {
+                const btn = document.getElementById(`btn-diff-${d}`);
+                if (d === diff) {
+                    btn.className = btn.className.replace('bg-white text-', 'bg-indigo-600 text-white border-indigo-600 ');
+                    if (d === 'easy') btn.className = "py-2 rounded-xl text-[10px] md:text-xs font-extrabold border-2 shadow-sm transition-all bounce-active flex flex-col items-center justify-center bg-emerald-600 text-white border-emerald-600";
+                    if (d === 'medium') btn.className = "py-2 rounded-xl text-[10px] md:text-xs font-extrabold border-2 shadow-sm transition-all bounce-active flex flex-col items-center justify-center bg-indigo-600 text-white border-indigo-600";
+                    if (d === 'hard') btn.className = "py-2 rounded-xl text-[10px] md:text-xs font-extrabold border-2 shadow-sm transition-all bounce-active flex flex-col items-center justify-center bg-rose-600 text-white border-rose-600";
+                } else {
+                    if (d === 'easy') btn.className = "py-2 rounded-xl text-[10px] md:text-xs font-extrabold border-2 shadow-sm transition-all bounce-active flex flex-col items-center justify-center bg-white text-emerald-800 border-emerald-200 hover:border-emerald-400 dark:bg-slate-800 dark:text-emerald-300 dark:border-slate-700";
+                    if (d === 'medium') btn.className = "py-2 rounded-xl text-[10px] md:text-xs font-extrabold border-2 shadow-sm transition-all bounce-active flex flex-col items-center justify-center bg-white text-indigo-800 border-indigo-200 hover:border-indigo-400 dark:bg-slate-800 dark:text-indigo-300 dark:border-slate-700";
+                    if (d === 'hard') btn.className = "py-2 rounded-xl text-[10px] md:text-xs font-extrabold border-2 shadow-sm transition-all bounce-active flex flex-col items-center justify-center bg-white text-rose-800 border-rose-200 hover:border-rose-400 dark:bg-slate-800 dark:text-rose-300 dark:border-slate-700";
+                }
+            });
+
+            const diffIndo = diff === 'easy' ? 'Mudah' : diff === 'medium' ? 'Sedang' : 'Sulit';
+            speakText(`Tingkat kesulitan ${diffIndo} dipilih.`);
+        }
+
+        // --- MANAJEMEN JUMLAH PEMAIN ---
+        function selectPlayersCount(count) {
+            initAudio(); 
+            playSound('click');
+            activePlayersCount = count;
+            
+            for (let i of [1, 2, 4]) {
+                const btn = document.getElementById('btn-player-' + i);
+                if (i === count) {
+                    btn.className = "py-1 rounded-xl text-xs font-bold border-2 shadow-sm transition-all duration-150 bounce-active bg-indigo-600 text-white border-indigo-600";
+                } else {
+                    btn.className = "py-1 rounded-xl text-xs font-bold border-2 shadow-sm transition-all duration-150 bounce-active bg-white text-indigo-800 border-indigo-200 hover:border-indigo-400 dark:bg-slate-850 dark:text-indigo-300 dark:border-slate-800";
+                }
+            }
+            
+            let countText = `Mode ${count} pemain dipilih.`;
+            if (count === 1) countText = "Mode satu pemain dipilih. Apakah kamu sudah siap bermain?";
+            if (count === 2) countText = "Mode dua pemain dipilih. Apakah kalian sudah siap bermain?";
+            if (count === 4) countText = "Mode empat pemain dipilih. Apakah kalian sudah siap bermain?";
+            speakText(countText);
+        }
+
+        // --- SELEKSI KARAKTER & PROFESI ---
+        function goToCharacterSelection(level) {
+            initAudio(); 
+            playSound('click');
+            currentLevel = level;
+
+            // Selaraskan profesi Pemain 1 dari layar Welcome Splash
+            const currentBadge = splashAvatars[selectedSplashAvatarIndex];
+            availableProfessions[0] = {
+                id: "custom",
+                name: currentBadge.name,
+                emoji: currentBadge.emoji,
+                badgeColor: "bg-indigo-600"
+            };
+
+            selectedProfessionsForSession = [];
+            for (let i = 0; i < activePlayersCount; i++) {
+                const defaultProf = i === 0 ? availableProfessions[0] : availableProfessions[i % availableProfessions.length];
+                selectedProfessionsForSession.push({ ...defaultProf });
+            }
+
+            // JIKA 1 PEMAIN -> Tetap arahkan ke layar pilihan, tapi hanya untuk mengatur kesulitan!
+            document.getElementById('view-menu').classList.add('hidden');
+            document.getElementById('view-char-select').classList.remove('hidden');
+
+            selectDifficulty(currentDifficulty);
+            renderCharacterSelectionUI();
+
+            if (activePlayersCount === 1) {
+                speakText("Ayo pilih tingkat kesulitan kuis untuk petualangan belajarmu!");
+            } else {
+                speakText("Ayo sesuaikan lencana profesi untuk teman bermainmu!");
+            }
+        }
+
+        // --- CANCEL SELECTION ---
+        function cancelCharacterSelection() {
+            playSound('click');
+            document.getElementById('view-char-select').classList.add('hidden');
+            document.getElementById('view-menu').classList.remove('hidden');
+            speakText("Pilih kembali level bermainmu!");
+        }
+
+        // --- HUBUNGAN PEMILIHAN ASPEK GRAFIS KARAKTER ---
+        function renderCharacterSelectionUI() {
+            const grid = document.getElementById('char-selection-grid');
+            grid.innerHTML = '';
+
+            let colClass = "w-full max-w-[160px] h-[28vh] min-h-[140px]";
+            if (activePlayersCount === 2) colClass = "w-full md:w-[48%] max-w-[240px] h-[30vh] min-h-[145px]";
+            if (activePlayersCount === 4) colClass = "w-full sm:w-[48%] md:w-[23%] max-w-[140px] h-[26vh] min-h-[125px]";
+
+            for (let i = 0; i < activePlayersCount; i++) {
+                const playerProf = selectedProfessionsForSession[i];
+                
+                const card = document.createElement('div');
+                card.className = `flex flex-col p-3 rounded-2xl border-4 bg-white shadow-lg items-center ${colClass} border-dashed ${playerPanelBgStyles[i]} justify-between min-h-0 h-full`;
+                
+                // Penskalaan ukuran avatar agar pas di IFP maupun layar HP kecil
+                const avatarSize = activePlayersCount === 4 ? 'w-14 h-14 text-3xl' : 'w-18 h-18 text-4xl';
+
+                card.innerHTML = `
+                    <div class="text-center">
+                        <span class="text-[9px] font-black text-slate-500 uppercase tracking-widest block">PEMAIN ${i + 1}</span>
+                        <div class="text-[10px] bg-indigo-50 text-indigo-700 px-2.5 py-0.5 rounded-full inline-block font-bold shadow-inner leading-tight mt-0.5">
+                            ${playerProf.name}
+                        </div>
+                    </div>
+
+                    <!-- Avatar Utama Besar -->
+                    <div class="${avatarSize} rounded-full ${playerProf.badgeColor} flex items-center justify-center mb-2 border-4 border-white shadow-md animate-float-slow">
+                        ${playerProf.emoji}
+                    </div>
+
+                    <!-- Grid List Seluruh Pilihan Profesi -->
+                    <div class="w-full">
+                        ${i === 0 ? `
+                            <!-- PEMAIN 1 DIKUNCI KARENA SUDAH DIPILIH DI HALAMAN WELCOME -->
+                            <div class="text-center py-2 bg-indigo-50 dark:bg-slate-800 rounded-xl border border-indigo-100 dark:border-slate-700">
+                                <span class="text-[9px] font-bold text-indigo-600 dark:text-amber-300">Lencanamu sudah siap! 🔒</span>
+                            </div>
+                        ` : `
+                            <span class="block text-[8px] font-black text-slate-400 mb-1 text-center uppercase tracking-wider">Pilih Profesi:</span>
+                            <div class="grid grid-cols-4 gap-1">
+                                ${availableProfessions.map(prof => {
+                                    const isSelected = (prof.id === playerProf.id);
+                                    const activeRing = isSelected ? 'ring-2 ring-indigo-500 scale-105 z-10' : 'opacity-85 hover:opacity-100';
+                                    const profBtnSize = activePlayersCount === 4 ? 'h-7 w-7 text-sm' : 'h-8 w-8 text-base';
+                                    return `
+                                        <button onclick="changePlayerProfession(${i}, '${prof.id}')" 
+                                                class="${profBtnSize} bg-slate-100 rounded-lg flex items-center justify-center transition-all duration-150 bounce-active ${activeRing}" 
+                                                title="${prof.name}">
+                                            ${prof.emoji}
+                                        </button>
+                                    `;
+                                }).join('')}
+                            </div>
+                        `}
+                    </div>
+                `;
+                grid.appendChild(card);
+            }
+        }
+
+        // --- SISTEM LAYAR TERBAGI (SPLIT-SCREEN) ---
+        function setupSplitScreen() {
+            const grid = document.getElementById('players-grid');
+            grid.innerHTML = ''; 
+
+            if (activePlayersCount === 1) {
+                grid.className = "grid grid-cols-1 w-full flex-grow min-h-0 overflow-hidden";
+            } else if (activePlayersCount === 2) {
+                grid.className = "grid grid-cols-1 md:grid-cols-2 gap-3 w-full flex-grow min-h-0 overflow-hidden";
+            } else if (activePlayersCount === 4) {
+                grid.className = "grid grid-cols-2 md:grid-cols-4 gap-2 w-full flex-grow min-h-0 overflow-hidden";
+            }
+
+            if (!selectedProfessionsForSession || selectedProfessionsForSession.length === 0) {
+                selectedProfessionsForSession = [];
+                for (let i = 0; i < activePlayersCount; i++) {
+                    const defaultProf = i === 0 ? availableProfessions[0] : availableProfessions[i % availableProfessions.length];
+                    selectedProfessionsForSession.push({ ...defaultProf });
+                }
+            }
+
+            playersData = [];
+            for (let i = 0; i < activePlayersCount; i++) {
+                const sessionProf = selectedProfessionsForSession[i];
+                playersData.push({
+                    index: i,
+                    score: 0,
+                    streak: 0, 
+                    questionCounter: 0,
+                    currentQuestion: null,
+                    isFinished: false,
+                    memoryPairs: [], 
+                    selectedCards: [],
+                    name: i === 0 ? childNickname : sessionProf.name,
+                    emoji: sessionProf.emoji,
+                    badgeColor: sessionProf.badgeColor
+                });
+            }
+
+            playersData.forEach(player => {
+                const panel = document.createElement('div');
+                panel.id = `player-panel-${player.index}`;
+                
+                // Menyesuaikan padding agar tidak memakan ruang visual berlebih di IFP / HP Lanskap
+                const padStyle = activePlayersCount === 4 ? 'p-2' : 'p-3 sm:p-4';
+                panel.className = `flex flex-col justify-between rounded-2xl border-4 shadow-md transition-all relative overflow-hidden ${padStyle} ${playerPanelBgStyles[player.index]} min-h-0 h-full`;
+                
+                panel.innerHTML = `
+                    <div class="flex justify-between items-center border-b-2 border-dashed border-slate-200/60 pb-1 mb-1 flex-shrink-0">
+                        <span class="text-[9px] md:text-xs font-extrabold ${player.badgeColor} text-white px-2 py-0.5 rounded-full shadow-sm max-w-[70%] truncate">
+                            ${player.name} ${player.emoji}
+                        </span>
+                        <div class="flex items-center gap-1 text-[9px] md:text-xs font-black">
+                            <span id="p-streak-badge-${player.index}" class="hidden bg-amber-400 text-white px-1 py-0.5 rounded-full text-[8px] animate-pulse">🔥 Kombo</span>
+                            <span class="text-slate-700">⭐ <span id="p-score-${player.index}" class="text-pink-600 text-xs md:text-sm">0</span></span>
+                        </div>
+                    </div>
+                    <div class="bg-white/80 border border-slate-100 p-1.5 rounded-xl mb-1.5 text-[9px] md:text-[11px] font-bold text-indigo-950 flex items-center justify-between gap-1 shadow-sm leading-tight relative font-sans flex-shrink-0">
+                        <div class="flex items-center gap-1 max-w-[85%]">
+                            <span class="text-xs md:text-sm flex-shrink-0">🐰</span>
+                            <span id="p-speech-${player.index}" class="line-clamp-2 pr-4 leading-tight">Mempersiapkan...</span>
+                        </div>
+                        <button onclick="playPlayerSpeechAgain(${player.index})" class="absolute right-1 top-1/2 -translate-y-1/2 p-0.5 bg-pink-100 hover:bg-pink-200 text-pink-700 rounded-full bounce-active transition-all text-xs" title="Dengar lagi">
+                            🔊
+                        </button>
+                    </div>
+                    <div id="p-playground-${player.index}" class="flex-grow flex flex-col justify-center items-center min-h-0 w-full relative overflow-hidden">
+                        <!-- Game Konten diisi dinamis -->
+                    </div>
+                `;
+                
+                grid.appendChild(panel);
+                generateQuestionForPlayer(player.index);
+            });
+        }
+
+        // --- SISTEM GENERASI SOAL KUIS ---
+        function generateQuestionForPlayer(pIdx) {
+            const player = playersData[pIdx];
+            if (player.isFinished) return;
+
+            player.questionCounter++;
+            
+            if (totalQuestionsPerSession !== 999 && player.questionCounter > totalQuestionsPerSession) {
+                player.isFinished = true;
+                showPlayerFinishedPanel(pIdx);
+                checkAllPlayersFinished();
+                return;
+            }
+
+            const playArea = document.getElementById(`p-playground-${pIdx}`);
+            playArea.innerHTML = ''; 
+
+            const isQuad = (activePlayersCount === 4);
+            const pName = player.name;
+
+            const isNight = themes[currentThemeIndex].id === 'night';
+            const balloonBgClass = isNight ? 'bg-slate-800/90 text-white' : 'bg-white/80 text-indigo-950';
+
+            if (currentLevel === 1) {
+                // ================= ADIK KECIL (2-3 TH) =================
+                const gameTypes = ['balloonPop', 'shapeMatch', 'animalSound'];
+                const chosenType = gameTypes[Math.floor(Math.random() * gameTypes.length)];
+
+                if (chosenType === 'balloonPop') {
+                    const target = colorsData[Math.floor(Math.random() * colorsData.length)];
+                    let numOptions = 3;
+                    let floatTime = "4s";
+                    if (currentDifficulty === 'easy') { numOptions = 2; floatTime = "6s"; }
+                    else if (currentDifficulty === 'hard') { numOptions = 4; floatTime = "2.5s"; }
+
+                    const options = [...colorsData].sort(() => Math.random() - 0.5).slice(0, numOptions);
+                    if (!options.find(o => o.id === target.id)) {
+                        options[0] = target;
+                    }
+                    const shuffledOptions = options.sort(() => Math.random() - 0.5);
+
+                    player.currentQuestion = {
+                        type: 'color',
+                        answer: target.id,
+                        speech: "Halo " + pName + ", pecahkan balon warna " + target.name + "!"
+                    };
+                    document.getElementById(`p-speech-${pIdx}`).innerHTML = `Pecahkan balon <span class="text-pink-600 dark:text-pink-300 font-extrabold underline">${target.name}</span>!`;
+
+                    const balloonContainer = document.createElement('div');
+                    // Menjamin tata letak tetap fleksibel tanpa overflow di HP Android/iOS Lanskap
+                    balloonContainer.className = 'flex justify-around items-end w-full gap-2 py-1 h-full max-h-[110px] sm:max-h-[130px] relative';
+                    
+                    shuffledOptions.forEach((col, idx) => {
+                        const wrapper = document.createElement('div');
+                        const ballSize = isQuad ? 'w-8 h-10' : 'w-9 h-11 md:w-11 md:h-13';
+                        wrapper.className = 'flex flex-col items-center cursor-pointer transition-transform hover:scale-110 active:scale-95 duration-100 relative hover-wiggle';
+                        wrapper.style.animation = `floatSlow ${floatTime} ease-in-out infinite`;
+                        
+                        wrapper.innerHTML = `
+                            <div class="${ballSize} ${col.colorClass} rounded-full shadow-md relative flex items-center justify-center border border-white/40">
+                                <span class="text-[8px] text-white/30 font-bold">🎈</span>
+                                <div class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-0.5 h-2 bg-slate-400"></div>
+                            </div>
+                        `;
+                        wrapper.onclick = () => {
+                            initAudio();
+                            playSound('pop');
+                            checkPlayerAnswer(pIdx, col.id);
+                        };
+                        balloonContainer.appendChild(wrapper);
+                    });
+                    playArea.appendChild(balloonContainer);
+
+                } else if (chosenType === 'shapeMatch') {
+                    const target = shapesData[Math.floor(Math.random() * shapesData.length)];
+                    let numOptions = 3;
+                    if (currentDifficulty === 'easy') numOptions = 2;
+                    else if (currentDifficulty === 'hard') numOptions = 4;
+
+                    const options = [...shapesData].sort(() => Math.random() - 0.5).slice(0, numOptions);
+                    if (!options.find(o => o.id === target.id)) {
+                        options[0] = target;
+                    }
+                    const shuffledOptions = options.sort(() => Math.random() - 0.5);
+
+                    player.currentQuestion = {
+                        type: 'color', 
+                        answer: target.id,
+                        speech: "Halo " + pName + ", mana yang bentuk " + target.name + "?"
+                    };
+                    document.getElementById(`p-speech-${pIdx}`).innerHTML = `Cari bentuk <span class="text-indigo-600 dark:text-indigo-300 font-extrabold">${target.name}</span>!`;
+
+                    const grid = document.createElement('div');
+                    
+                    // REVISI LAYAR SEDANG (MEDIUM): Ubah grid-cols-2 menjadi baris tunggal horizontal (flex-row)
+                    if (currentDifficulty === 'medium') {
+                        grid.className = 'flex justify-around items-center w-full gap-2 max-h-[110px] sm:max-h-[130px]';
+                    } else {
+                        grid.className = isQuad 
+                            ? 'grid grid-cols-2 gap-1 w-full max-w-[140px] max-h-[110px] sm:max-h-[130px]' 
+                            : 'grid grid-cols-2 gap-3 w-full max-w-[180px] md:max-w-[220px] max-h-[120px] sm:max-h-[140px]';
+                    }
+
+                    shuffledOptions.forEach(shp => {
+                        const btn = document.createElement('button');
+                        btn.className = isQuad
+                            ? 'p-1 bg-white dark:bg-slate-800 dark:border-slate-700 hover:bg-indigo-50/50 border border-indigo-100 rounded-xl shadow-sm bounce-active hover-wiggle flex flex-col items-center justify-center transition-all min-h-0'
+                            : 'p-1.5 sm:p-2 bg-white dark:bg-slate-800 dark:border-slate-700 hover:bg-indigo-50/50 border-2 border-indigo-100 rounded-2xl shadow-sm bounce-active hover-wiggle flex flex-col items-center justify-center transition-all min-h-0';
+                        
+                        // Khusus Sedang: Berikan batas lebar agar terbagi rata
+                        if (currentDifficulty === 'medium') {
+                            btn.className += ' w-full max-w-[100px]';
+                        }
+                        
+                        btn.onclick = () => {
+                            initAudio();
+                            checkPlayerAnswer(pIdx, shp.id); 
+                        };
+                        btn.innerHTML = `
+                            <div class="mb-0.5 scale-75 sm:scale-90 flex items-center justify-center">${shp.svg}</div>
+                            <span class="text-[8px] sm:text-[9px] font-bold leading-none text-slate-600 dark:text-slate-300">${shp.name}</span>
+                        `;
+                        grid.appendChild(btn);
+                    });
+                    playArea.appendChild(grid);
+
+                } else if (chosenType === 'animalSound') {
+                    const target = animalsData[Math.floor(Math.random() * animalsData.length)];
+                    let numOptions = 3;
+                    if (currentDifficulty === 'easy') numOptions = 2;
+                    else if (currentDifficulty === 'hard') numOptions = 4;
+
+                    const options = [...animalsData].sort(() => Math.random() - 0.5).slice(0, numOptions);
+                    if (!options.find(o => o.id === target.id)) {
+                        options[0] = target;
+                    }
+                    const shuffledOptions = options.sort(() => Math.random() - 0.5);
+
+                    player.currentQuestion = {
+                        type: 'animal',
+                        answer: target.id,
+                        speech: "Halo " + pName + ", siapa yang bunyinya " + target.soundName
+                    };
+                    document.getElementById(`p-speech-${pIdx}`).innerHTML = `Siapa bunyinya "<span class="text-emerald-700 dark:text-emerald-300 font-extrabold">${target.soundName}</span>"?`;
+
+                    const wrapper = document.createElement('div');
+                    
+                    // REVISI LAYAR SEDANG (MEDIUM): Ubah grid-cols-2 menjadi baris tunggal horizontal (flex-row)
+                    if (currentDifficulty === 'medium') {
+                        wrapper.className = 'flex justify-around items-center w-full gap-2 max-h-[110px] sm:max-h-[130px]';
+                    } else {
+                        wrapper.className = isQuad
+                            ? 'grid grid-cols-2 gap-1 w-full max-w-[130px] max-h-[110px] sm:max-h-[130px]'
+                            : 'grid grid-cols-2 gap-2 w-full max-w-[160px] md:max-w-[200px] max-h-[120px] sm:max-h-[140px]';
+                    }
+
+                    shuffledOptions.forEach(anm => {
+                        const btn = document.createElement('button');
+                        const iconSize = isQuad ? 'text-2xl' : 'text-3xl md:text-4xl';
+                        btn.className = isQuad
+                            ? 'p-1 bg-white dark:bg-slate-800 dark:border-slate-700 hover:bg-amber-50 border border-indigo-100 rounded-xl shadow-sm bounce-active hover-wiggle flex flex-col items-center justify-center transition-all'
+                            : 'p-1.5 sm:p-2 bg-white dark:bg-slate-800 dark:border-slate-700 hover:bg-amber-50 border-2 border-indigo-100 rounded-2xl shadow-sm bounce-active hover-wiggle flex flex-col items-center justify-center transition-all';
+                        
+                        // Khusus Sedang: Berikan batas lebar agar terbagi rata
+                        if (currentDifficulty === 'medium') {
+                            btn.className += ' w-full max-w-[100px]';
+                        }
+                        
+                        btn.onclick = () => {
+                            initAudio();
+                            checkPlayerAnswer(pIdx, anm.id);
+                        };
+                        btn.innerHTML = `
+                            <span class="${iconSize} mb-0.5 leading-none">${anm.emoji}</span>
+                            <span class="text-[8px] sm:text-[9px] font-bold leading-none text-slate-700 dark:text-slate-300">${anm.name}</span>
+                        `;
+                        wrapper.appendChild(btn);
+                    });
+                    playArea.appendChild(wrapper);
+                }
+
+            } else {
+                // ================= KAKAK PINTAR (4-6 TH) =================
+                const gameTypes = ['fallingFruit', 'memoryMatch', 'bubbleCount'];
+                const chosenType = gameTypes[Math.floor(Math.random() * gameTypes.length)];
+
+                if (chosenType === 'fallingFruit') {
+                    const targetFruits = [
+                        { name: 'Apel', emoji: '🍎', id: 'apple' },
+                        { name: 'Pisang', emoji: '🍌', id: 'banana' },
+                        { name: 'Stroberi', emoji: '🍓', id: 'strawberry' }
+                    ];
+                    const target = targetFruits[Math.floor(Math.random() * targetFruits.length)];
+
+                    let speedClass = "3.5s";
+                    let numSpawn = 3;
+                    if (currentDifficulty === 'easy') { speedClass = "5s"; numSpawn = 2; }
+                    else if (currentDifficulty === 'hard') { speedClass = "2.2s"; numSpawn = 4; }
+
+                    player.currentQuestion = {
+                        type: 'count', 
+                        answer: target.id,
+                        speech: "Halo " + pName + ", tangkap buah " + target.name + "!"
+                    };
+                    document.getElementById(`p-speech-${pIdx}`).innerHTML = `Tangkap buah <span class="text-pink-600 font-extrabold">${target.name}</span>!`;
+
+                    const fallingArea = document.createElement('div');
+                    fallingArea.className = 'w-full h-full min-h-[100px] max-h-[11vh] sm:max-h-[13vh] bg-slate-900/5 dark:bg-slate-850/10 rounded-xl border border-dashed border-slate-200 dark:border-slate-700 relative overflow-hidden flex items-center justify-center';
+                    
+                    const fruitsToSpawn = [
+                        target,
+                        targetFruits[(targetFruits.indexOf(target) + 1) % 3],
+                        targetFruits[(targetFruits.indexOf(target) + 2) % 3],
+                        target
+                    ].slice(0, numSpawn).sort(() => Math.random() - 0.5);
+
+                    fruitsToSpawn.forEach((fr, idx) => {
+                        const fruitEl = document.createElement('button');
+                        const iconSize = isQuad ? 'text-xl' : 'text-2xl sm:text-3xl';
+                        fruitEl.className = `absolute ${iconSize} animate-fall cursor-pointer hover:scale-125 duration-100`;
+                        fruitEl.style.left = `${5 + idx * 25}%`;
+                        fruitEl.style.animationDelay = `${idx * 0.8}s`; 
+                        fruitEl.style.animationDuration = speedClass; 
+                        fruitEl.textContent = fr.emoji;
+                        fruitEl.onclick = () => {
+                            initAudio();
+                            fruitEl.style.display = 'none'; 
+                            checkPlayerAnswer(pIdx, fr.id);
+                        };
+                        fallingArea.appendChild(fruitEl);
+                    });
+                    playArea.appendChild(fallingArea);
+
+                } else if (chosenType === 'memoryMatch') {
+                    let pairEmojiList = [];
+                    if (currentDifficulty === 'easy') {
+                        pairEmojiList = [memoryImages[0], memoryImages[1]];
+                    } else if (currentDifficulty === 'medium') {
+                        pairEmojiList = [memoryImages[0], memoryImages[1], memoryImages[2]];
+                    } else {
+                        pairEmojiList = [memoryImages[0], memoryImages[1], memoryImages[2], memoryImages[3]];
+                    }
+
+                    let deck = [];
+                    pairEmojiList.forEach(emoji => {
+                        deck.push({ id: Math.random(), val: emoji });
+                        deck.push({ id: Math.random(), val: emoji });
+                    });
+                    deck = deck.sort(() => Math.random() - 0.5);
+
+                    player.currentQuestion = {
+                        type: 'memory',
+                        answer: 'match',
+                        speech: "Halo " + pName + ", cari dua kartu bergambar sama!"
+                    };
+                    document.getElementById(`p-speech-${pIdx}`).innerHTML = `Temukan <span class="text-indigo-600 dark:text-indigo-300 font-extrabold">gambar sama</span>!`;
+
+                    player.selectedCards = [];
+                    player.memoryPairs = []; 
+
+                    const cardGrid = document.createElement('div');
+                    if (currentDifficulty === 'easy') {
+                        cardGrid.className = 'grid grid-cols-2 gap-1.5 w-full max-w-[110px] max-h-[110px] sm:max-h-[130px]';
+                    } else if (currentDifficulty === 'medium') {
+                        cardGrid.className = 'grid grid-cols-3 gap-1.5 w-full max-w-[160px] max-h-[120px] sm:max-h-[140px]';
+                    } else {
+                        cardGrid.className = 'grid grid-cols-4 gap-1 w-full max-w-[200px] max-h-[120px] sm:max-h-[140px]';
+                    }
+
+                    deck.forEach((card, idx) => {
+                        const cardBtn = document.createElement('button');
+                        cardBtn.id = `card-${pIdx}-${idx}`;
+                        // Diubah ke satuan persen vh dinamis agar presisi tinggi Full HD 1080p
+                        const cardHeight = isQuad ? 'h-[8vh] text-xs' : 'h-[11vh] text-base sm:text-lg';
+                        cardBtn.className = `${cardHeight} w-full bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-xl font-bold flex items-center justify-center shadow-md cursor-pointer transition-all transform min-h-0`;
+                        cardBtn.textContent = '❓';
+                        
+                        cardBtn.onclick = () => {
+                            if (cardBtn.textContent !== '❓' || player.selectedCards.length >= 2) return;
+
+                            initAudio(); 
+                            playSound('click');
+                            cardBtn.textContent = card.val; 
+                            cardBtn.classList.remove('from-indigo-500', 'to-purple-600');
+                            cardBtn.classList.add('bg-white', 'text-slate-800', 'border-2', 'border-indigo-400');
+                            player.selectedCards.push({ element: cardBtn, data: card });
+
+                            if (player.selectedCards.length === 2) {
+                                const [card1, card2] = player.selectedCards;
+                                if (card1.data.val === card2.data.val) {
+                                    player.memoryPairs.push(card1.data.val);
+                                    player.selectedCards = [];
+                                    
+                                    if (player.memoryPairs.length === pairEmojiList.length) {
+                                        setTimeout(() => {
+                                            checkPlayerAnswer(pIdx, 'match');
+                                        }, 600);
+                                    }
+                                } else {
+                                    setTimeout(() => {
+                                        playSound('wrong');
+                                        [card1, card2].forEach(c => {
+                                            c.element.textContent = '❓';
+                                            c.element.className = `${cardHeight} w-full bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-xl font-bold flex items-center justify-center shadow-md cursor-pointer transition-all transform min-h-0`;
+                                        });
+                                        player.selectedCards = [];
+                                    }, 1000);
+                                }
+                            }
+                        };
+                        cardGrid.appendChild(cardBtn);
+                    });
+                    playArea.appendChild(cardGrid);
+
+                } else if (chosenType === 'bubbleCount') {
+                    let maxCount = 5;
+                    let numOptions = 3;
+                    if (currentDifficulty === 'easy') { maxCount = 3; numOptions = 2; }
+                    else if (currentDifficulty === 'hard') { maxCount = 8; numOptions = 4; }
+
+                    const count = Math.floor(Math.random() * (maxCount - 1)) + 2; 
+                    const fruits = ['🍓', '🍎', '🥕', '🍉'];
+                    const emoji = fruits[Math.floor(Math.random() * fruits.length)];
+
+                    const correctAns = count;
+                    const wrong1 = count + 1;
+                    const wrong2 = count - 1 > 0 ? count - 1 : count + 2;
+                    const wrong3 = count + 2;
+
+                    let options = [correctAns, wrong1, wrong2];
+                    if (numOptions === 2) options = [correctAns, wrong1];
+                    if (numOptions === 4) options = [correctAns, wrong1, wrong2, wrong3];
+                    options = [...new Set(options)].sort(() => Math.random() - 0.5); 
+
+                    player.currentQuestion = {
+                        type: 'count',
+                        answer: correctAns,
+                        speech: "Halo " + pName + ", ada berapa banyak buah di bawah ini?"
+                    };
+                    document.getElementById('p-speech-' + pIdx).innerHTML = "Ada berapa buah <span class='text-emerald-700 dark:text-emerald-300 font-extrabold'>" + emoji + "</span>?";
+
+                    const bubbleFrame = document.createElement('div');
+                    // Menggunakan tinggi persen vh dinamis agar stabil di mode Full HD Lanskap HP
+                    bubbleFrame.className = 'flex flex-wrap justify-center items-center gap-1 bg-emerald-50/10 p-1 rounded-xl border border-dashed border-emerald-200 h-[8vh] sm:h-[10vh] w-full mb-1.5 flex-shrink-0';
+                    
+                    for (let i = 0; i < count; i++) {
+                        const bubble = document.createElement('span');
+                        const bubbleSize = isQuad ? 'text-sm' : 'text-lg sm:text-xl';
+                        bubble.className = `${bubbleSize} animate-float-slow leading-none`;
+                        bubble.style.animationDelay = `${i * 0.3}s`;
+                        bubble.textContent = emoji;
+                        bubbleFrame.appendChild(bubble);
+                    }
+                    playArea.appendChild(bubbleFrame);
+
+                    const btnContainer = document.createElement('div');
+                    btnContainer.className = 'flex gap-2 justify-center w-full flex-shrink-0';
+
+                    options.forEach(num => {
+                        const btn = document.createElement('button');
+                        const btnSize = isQuad ? 'w-8 h-8 text-sm' : 'w-10 h-10 text-base sm:text-lg';
+                        btn.className = `${btnSize} bg-gradient-to-b from-indigo-500 to-indigo-600 text-white font-extrabold rounded-xl shadow-md bounce-active hover-wiggle flex items-center justify-center hover:from-indigo-600 hover:to-indigo-700 transition-all border-b-4 border-indigo-800`;
+                        btn.onclick = () => {
+                            initAudio();
+                            checkPlayerAnswer(pIdx, num);
+                        };
+                        btn.textContent = num;
+                        btnContainer.appendChild(btn);
+                    });
+                    playArea.appendChild(btnContainer);
+                }
+            }
+
+            const mascotBubble = document.getElementById(`p-speech-${pIdx}`).parentNode.parentNode;
+            mascotBubble.className = `border p-1 rounded-xl mb-1.5 text-[9px] md:text-[11px] font-bold flex items-center justify-between gap-1 shadow-sm leading-tight relative theme-adaptive-modal ${balloonBgClass} flex-shrink-0`;
+
+            if (activePlayersCount === 1) {
+                speakText(player.currentQuestion.speech);
+            }
+        }
+
+        // --- SISTEM VALIDASI DAN HASIL KUIS PAUD ---
+        async function checkPlayerAnswer(pIdx, chosenValue) {
+            const player = playersData[pIdx];
+            const playArea = document.getElementById(`p-playground-${pIdx}`);
+            playArea.style.pointerEvents = 'none'; 
+
+            const isCorrect = (chosenValue === player.currentQuestion.answer);
+
+            const qType = player.currentQuestion.type;
+            const diff = currentDifficulty;
+
+            const statPrefix = `${qType}_${diff}`;
+            if (parentStats[`${statPrefix}_total`] !== undefined) {
+                parentStats[`${statPrefix}_total`]++;
+                if (isCorrect) parentStats[`${statPrefix}_correct`]++;
+                saveStats(); 
+            }
+
+            if (isCorrect) {
+                playSound('correct');
+                
+                player.streak++;
+                let bonusScore = 0;
+                let isComboActive = false;
+                
+                if (player.streak >= 3) {
+                    bonusScore = 15; 
+                    isComboActive = true;
+                } else if (player.streak === 2) {
+                    bonusScore = 5; 
+                    isComboActive = true;
+                }
+                
+                const baseScore = currentLevel === 1 ? 10 : 20;
+                player.score += (baseScore + bonusScore);
+                
+                document.getElementById(`p-score-${pIdx}`).textContent = player.score;
+
+                const comboBadge = document.getElementById(`p-streak-badge-${player.index}`);
+                if (isComboActive) {
+                    comboBadge.textContent = "🔥 Kombo " + player.streak + "x";
+                    comboBadge.classList.remove('hidden');
+                }
+
+                let speechFeedback = "🌟 Hebat! Benar! ✨";
+                if (player.streak >= 3) {
+                    speechFeedback = "🔥 WOW! SUPER KOMBO " + player.streak + "x! 🌟";
+                } else if (player.streak === 2) {
+                    speechFeedback = "🔥 Keren! Kombo 2x! ✨";
+                }
+                document.getElementById(`p-speech-${pIdx}`).innerHTML = "<span class='text-green-600 font-bold'>" + speechFeedback + "</span>";
+
+                if (activePlayersCount === 1) {
+                    if (player.streak >= 3) {
+                        await speakText("Luar biasa cerdas! Kamu mendapat Super Kombo " + player.streak + " kali benar berturut-turut!");
+                    } else if (player.streak === 2) {
+                        await speakText("Keren, kombo dua kali!");
+                    } else {
+                        await speakText("Wah pintar sekali, benar!");
+                    }
+                }
+
+                triggerMiniConfettiInsidePanel(pIdx);
+
+                setTimeout(() => {
+                    playArea.style.pointerEvents = 'auto';
+                    generateQuestionForPlayer(pIdx);
+                }, 1200);
+
+            } else {
+                playSound('wrong');
+                
+                player.streak = 0;
+                const comboBadge = document.getElementById(`p-streak-badge-${player.index}`);
+                comboBadge.classList.add('hidden');
+
+                document.getElementById(`p-speech-${pIdx}`).innerHTML = `<span class="text-red-500 font-bold">Ayo coba lagi! 💪</span>`;
+
+                if (activePlayersCount === 1) {
+                    await speakText("Coba lagi, kamu pasti bisa!");
+                }
+
+                setTimeout(() => {
+                    playArea.style.pointerEvents = 'auto';
+                    document.getElementById(`p-speech-${pIdx}`).textContent = player.currentQuestion.speech;
+                }, 1200);
+            }
+        }
+
+        function showPlayerFinishedPanel(pIdx) {
+            const playArea = document.getElementById(`p-playground-${pIdx}`);
+            const pName = playersData[pIdx].name;
+            playArea.innerHTML = `
+                <div class="flex flex-col items-center justify-center p-3 bg-white/90 dark:bg-slate-800/90 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-inner text-center">
+                    <span class="text-3xl mb-1 animate-bounce">🏆</span>
+                    <h4 class="text-xs font-black mb-0.5 text-inherit leading-none">Selesai!</h4>
+                    <p class="text-[9px] text-slate-500 dark:text-slate-400">Skor Akhir ${pName}</p>
+                    <span class="text-base font-extrabold text-pink-600 dark:text-pink-400 mt-0.5">⭐ ${playersData[pIdx].score}</span>
+                </div>
+            `;
+            document.getElementById(`p-speech-${pIdx}`).innerHTML = `<span class="text-indigo-600 dark:text-indigo-400 font-bold">🏁 Hebat! Selesai!</span>`;
+        }
+
+        function checkAllPlayersFinished() {
+            const allFinished = playersData.every(player => player.isFinished);
+            if (allFinished) {
+                setTimeout(() => {
+                    triggerEndGameSession(); 
+                }, 1000);
+            }
+        }
+
+        function triggerEndGameSession() {
+            playSound('victory');
+            stopAllSpeech();
+            stopBGM(); 
+
+            const rankedPlayers = [...playersData].sort((a, b) => b.score - a.score);
+
+            const winnerZone = document.getElementById('winner-celebration-zone');
+            const singleCard = document.getElementById('single-player-score-card');
+            const recordBadge = document.getElementById('new-record-badge');
+            const stickerUnlockArea = document.getElementById('sticker-unlock-popup');
+
+            const newSticker = unlockRandomSticker();
+            if (newSticker) {
+                stickerUnlockArea.classList.remove('hidden');
+                document.getElementById('unlocked-sticker-emoji').textContent = newSticker.emoji;
+                document.getElementById('unlocked-sticker-name').textContent = newSticker.name;
+            } else {
+                stickerUnlockArea.classList.add('hidden');
+            }
+
+            if (activePlayersCount === 1) {
+                if (singleCard) singleCard.classList.remove('hidden');
+                
+                const finalScore = rankedPlayers[0].score;
+                document.getElementById('final-score').textContent = finalScore;
+                document.getElementById('final-highscore').textContent = highScores[currentLevel];
+
+                let isNewRecord = false;
+                if (finalScore > highScores[currentLevel]) {
+                    highScores[currentLevel] = finalScore;
+                    localStorage.setItem("highScore_tamanPintar_" + currentLevel, finalScore);
+                    isNewRecord = true;
+                    if (recordBadge) recordBadge.classList.remove('hidden');
+                } else {
+                    if (recordBadge) recordBadge.classList.add('hidden');
+                }
+
+                winnerZone.innerHTML = `
+                    <span class="text-5xl mb-1.5 block animate-bounce">🏆</span>
+                    <h3 class="text-xl md:text-2xl font-extrabold mb-0.5 leading-tight">Hebat Sekali!</h3>
+                    <p class="text-slate-500 dark:text-slate-300 text-xs">Kamu telah menyelesaikan petualangan belajarmu!</p>
+                `;
+
+                if (isNewRecord) {
+                    speakText("Hore! Rekor baru tercipta! Kamu menyelesaikan kuis dengan skor sangat tinggi yaitu " + finalScore + "!");
+                } else {
+                    speakText("Hore! Permainan selesai. Kamu luar biasa, skormu adalah " + finalScore + "!");
+                }
+
+            } else {
+                if (singleCard) singleCard.classList.add('hidden'); 
+
+                const maxScore = Math.max(...playersData.map(p => p.score));
+                const winners = playersData.filter(p => p.score === maxScore);
+
+                let celebrationTitle = "";
+                let celebrationSubtitle = "";
+                let audioAnnouncement = "";
+
+                if (winners.length === 1) {
+                    const champion = winners[0];
+                    celebrationTitle = "👑 " + champion.name + " Juara!";
+                    celebrationSubtitle = "Selamat kepada " + champion.name + " atas kemenangan spektakuler ini!";
+                    audioAnnouncement = "Selamat untuk " + champion.name + "! Kamu keluar sebagai juara utama dengan nilai tertinggi, yaitu " + champion.score + " poin! Luar biasa pintar!";
+                } else {
+                    const winnerNames = winners.map(w => w.name).join(" dan ");
+                    celebrationTitle = "🤝 Juara Bersama!";
+                    celebrationSubtitle = "Hebat! " + winnerNames + " mendapatkan skor yang sama tinggi!";
+                    audioAnnouncement = "Wah, luar biasa! " + winnerNames + " bermain sangat hebat dan kompak sehingga menjadi Juara Bersama dengan skor " + maxScore + " poin!";
+                }
+
+                winnerZone.innerHTML = `
+                    <div class="bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 p-3 rounded-2xl shadow-md border-4 border-white inline-block mb-2.5 animate-pulse">
+                        <span class="text-5xl block">👑🏆👑</span>
+                    </div>
+                    <h3 class="text-2xl font-black text-amber-600 mb-0.5 drop-shadow-sm">${celebrationTitle}</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs font-bold">${celebrationSubtitle}</p>
+                    <div class="mt-1.5 text-[9px] bg-indigo-50/20 inline-block px-2.5 py-0.5 rounded-full font-bold">
+                        Skor Tertinggi: ⭐ ${maxScore} Poin
+                    </div>
+                `;
+
+                speakText(audioAnnouncement);
+            }
+
+            const listContainer = document.getElementById('ranking-list');
+            listContainer.innerHTML = '';
+
+            rankedPlayers.forEach((p, idx) => {
+                let badgeSymbol = '🎖️';
+                let badgeColor = 'bg-slate-100 border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-slate-700 dark:text-slate-200';
+                
+                if (idx === 0) {
+                    badgeSymbol = '🥇 Juara 1';
+                    badgeColor = 'bg-yellow-100 border-yellow-300 dark:bg-yellow-950/40 dark:border-yellow-700 text-yellow-950 dark:text-yellow-300 font-black';
+                } else if (idx === 1) {
+                    badgeSymbol = '🥈 Juara 2';
+                    badgeColor = 'bg-slate-200 border-slate-300 dark:bg-slate-700/40 dark:border-slate-600 text-slate-800 dark:text-slate-100 font-bold';
+                } else if (idx === 2) {
+                    badgeSymbol = '🥉 Juara 3';
+                    badgeColor = 'bg-orange-100 border-orange-200 dark:bg-orange-950/40 dark:border-orange-800 text-orange-800 dark:text-orange-300 font-bold';
+                }
+
+                const row = document.createElement('div');
+                row.className = "flex justify-between items-center p-2 rounded-2xl border-2 shadow-sm " + badgeColor;
+                row.innerHTML = `
+                    <div class="flex items-center gap-2 text-xs">
+                        <span>${badgeSymbol}</span>
+                        <span>${p.emoji} ${p.name}</span>
+                    </div>
+                    <span class="text-xs font-black">⭐ ${p.score}</span>
+                `;
+                listContainer.appendChild(row);
+            });
+
+            startConfetti();
+            openModal('result-modal');
+        }
+
+        // --- SISTEM CONFETTI JAVASCRIPT ---
+        function initConfetti() {
+            if (!canvas) {
+                canvas = document.getElementById('confetti-canvas');
+                if (canvas) {
+                    ctx = canvas.getContext('2d');
+                }
+            }
+        }
+
+        // MENAMBAHKAN KEMBALI FUNGSI resizeCanvas YANG TERHAPUS UNTUK MEMPERBAIKI REFERENCEERROR
+        function resizeCanvas() {
+            initConfetti();
+            if (canvas) {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+        }
+
+        initConfetti();
+
+        function triggerMiniConfettiInsidePanel(pIdx) {
+            resizeCanvas();
+            if (canvas) {
+                canvas.classList.remove('hidden');
+                const panel = document.getElementById(`player-panel-${pIdx}`);
+                const rect = panel.getBoundingClientRect();
+                
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+
+                for (let i = 0; i < 30; i++) {
+                    particles.push({
+                        x: centerX,
+                        y: centerY,
+                        color: `hsl(${Math.random() * 360}, 100%, 65%)`,
+                        size: Math.random() * 6 + 4,
+                        speedX: (Math.random() - 0.5) * 10,
+                        speedY: -Math.random() * 10 - 2,
+                        gravity: 0.35,
+                        rotation: Math.random() * 360,
+                        rotationSpeed: (Math.random() - 0.5) * 15
+                    });
+                }
+                if (!confettiActive) {
+                    confettiActive = true;
+                    animateConfetti();
+                }
+            }
+        }
+
+        function startConfetti() {
+            resizeCanvas();
+            if (canvas) {
+                canvas.classList.remove('hidden');
+                particles = [];
+                for (let i = 0; i < 120; i++) {
+                    particles.push({
+                        x: Math.random() * canvas.width,
+                        y: canvas.height + 20,
+                        color: `hsl(${Math.random() * 360}, 100%, 60%)`,
+                        size: Math.random() * 8 + 6,
+                        speedX: (Math.random() - 0.5) * 8,
+                        speedY: -Math.random() * 18 - 8,
+                        gravity: 0.35,
+                        rotation: Math.random() * 360,
+                        rotationSpeed: (Math.random() - 0.5) * 12
+                    });
+                }
+                if (!confettiActive) {
+                    confettiActive = true;
+                    animateConfetti();
+                }
+                setTimeout(() => {
+                    confettiActive = false;
+                    canvas.classList.add('hidden');
+                    particles = [];
+                }, 3500);
+            }
+        }
+
+        function animateConfetti() {
+            if (particles.length === 0 && !confettiActive) {
+                if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
+                return;
+            }
+            if (ctx) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                for (let i = 0; i < particles.length; i++) {
+                    let p = particles[i];
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    p.speedY += p.gravity;
+                    p.rotation += p.rotationSpeed;
+
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate(p.rotation * Math.PI / 180);
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+                    ctx.restore();
+
+                    if (p.y > canvas.height + 50) {
+                        particles.splice(i, 1);
+                        i--;
+                    }
+                }
+            }
+
+            requestAnimationFrame(animateConfetti);
+        }
+
+        // --- SISTEM KONTROL ALUR DALAM GAME ---
+        function confirmAndStartGame() {
+            playSound('click');
+            document.getElementById('view-char-select').classList.add('hidden');
+            document.getElementById('view-game').classList.remove('hidden');
+
+            document.getElementById('game-mode-label').textContent = currentLevel === 1 ? "Adik Kecil (2-3 Th)" : "Kakak Pintar (4-6 Th)";
+            document.getElementById('game-diff-label').textContent = getDifficultyLabel(currentDifficulty);
+            document.getElementById('players-mode-label').textContent = `${activePlayersCount} Pemain`;
+
+            setupSplitScreen();
+            startBGM();
+
+            speakText("Hore! Para petualang hebat siap meluncur! Ayo kumpulkan kepingan bintang sebanyak-banyaknya!");
+        }
+
+        function confirmExit() {
+            openModal('exit-modal');
+        }
+
+        // --- FINISH GAME EARLY ---
+        function finishGameEarly() {
+            closeModal('exit-modal');
+            playersData.forEach(p => {
+                p.isFinished = true;
+            });
+            triggerEndGameSession();
+        }
+
+        // --- KELUAR TANPA MENYIMPAN ---
+        function exitGameWithoutSaving() {
+            closeModal('exit-modal');
+            backToMenu();
+        }
 
         // --- RESTART GAME ---
         function restartCurrentGame() {
