@@ -15,7 +15,7 @@
     <!-- Google Fonts: Fredoka -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght=300..700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Fredoka', sans-serif;
@@ -121,28 +121,41 @@
 
             /* Area Pemilihan Karakter & Kesulitan */
             #view-char-select {
-                padding: 0.75rem !important;
+                padding: 0.5rem !important;
                 max-height: 94vh !important;
+                gap: 0.5rem !important;
             }
             #char-title-text {
-                font-size: 1.25rem !important;
+                font-size: 1.1rem !important;
             }
             #char-subtitle-text {
-                font-size: 0.7rem !important;
+                font-size: 0.65rem !important;
             }
             #diff-setting-container {
-                padding: 0.35rem !important;
-                margin-bottom: 0.35rem !important;
-                border-radius: 1rem !important;
+                padding: 0.3rem 0.5rem !important;
+                border-radius: 0.75rem !important;
+                margin-bottom: 0px !important;
             }
             #diff-setting-container button {
-                padding-top: 0.35rem !important;
-                padding-bottom: 0.35rem !important;
-                font-size: 0.75rem !important;
+                padding-top: 0.3rem !important;
+                padding-bottom: 0.3rem !important;
+                font-size: 0.7rem !important;
+                border-radius: 0.5rem !important;
+                gap: 0.5rem !important;
+            }
+            #action-navigation-container {
+                padding: 0.3rem 0.5rem !important;
+                border-radius: 0.75rem !important;
+                gap: 0.35rem !important;
+            }
+            #action-navigation-container button {
+                padding-top: 0.3rem !important;
+                padding-bottom: 0.3rem !important;
+                font-size: 0.7rem !important;
                 border-radius: 0.5rem !important;
             }
             #char-selection-grid {
-                margin-bottom: 0.35rem !important;
+                margin-bottom: 0.25rem !important;
             }
             #char-selection-grid .flex-col {
                 padding: 0.35rem !important;
@@ -150,9 +163,9 @@
                 max-height: 35vh !important;
             }
             #char-selection-grid .w-24, #char-selection-grid .w-18, #char-selection-grid .w-14 {
-                width: 3.5rem !important;
-                height: 3.5rem !important;
-                font-size: 1.75rem !important;
+                width: 3.2rem !important;
+                height: 3.2rem !important;
+                font-size: 1.6rem !important;
             }
         }
 
@@ -468,47 +481,44 @@
                 <p class="text-[9px] md:text-xs text-slate-600 transition-colors" id="char-subtitle-text">Pilih tingkat kesulitan kuis dan profesi impian untuk para pemain.</p>
             </div>
 
-            <!-- Wadah Fleksibel: Kiri (Kontrol / Tingkat Kesulitan) & Kanan (Grid Pilihan Karakter) -->
+            <!-- Wadah Fleksibel: Kiri (Tingkat Kesulitan), Tengah (Grid Pilihan Karakter), Kanan (Tombol Aksi Utama) -->
             <div class="flex flex-col md:flex-row gap-4 w-full min-h-0 flex-grow items-stretch">
                 
-                <!-- PANEL KIRI: Tingkat Kesulitan (Kolom Kebawah) + Tombol Navigasi yang Sangat Mudah Diakses -->
-                <div class="w-full md:w-1/3 flex flex-col justify-between gap-4 bg-white/80 dark:bg-slate-900/90 p-3 sm:p-4 rounded-2xl border-2 border-indigo-100 dark:border-slate-850 shadow-sm flex-shrink-0">
-                    
-                    <!-- Kontainer Tombol Kesulitan Stacked Kebawah -->
-                    <div id="diff-setting-container" class="flex flex-col w-full">
-                        <span class="block text-[9px] md:text-[11px] font-black text-indigo-900 dark:text-indigo-300 mb-2 uppercase tracking-widest text-center md:text-left transition-colors" id="diff-setting-label">📶 Tingkat Kesulitan:</span>
-                        <div class="flex flex-col gap-2 w-full">
-                            <button id="btn-diff-easy" onclick="selectDifficulty('easy')" class="py-2.5 rounded-xl text-xs font-extrabold border-2 shadow-sm transition-all bounce-active flex items-center justify-start px-4 gap-3 bg-white text-emerald-800 border-emerald-200 hover:border-emerald-400">
-                                <span class="text-lg leading-none">🟢</span>
-                                <span>Mudah</span>
-                            </button>
-                            <button id="btn-diff-medium" onclick="selectDifficulty('medium')" class="py-2.5 rounded-xl text-xs font-extrabold border-2 shadow-sm transition-all bounce-active flex items-center justify-start px-4 gap-3 bg-indigo-600 text-white border-indigo-600">
-                                <span class="text-lg leading-none">🟡</span>
-                                <span>Sedang</span>
-                            </button>
-                            <button id="btn-diff-hard" onclick="selectDifficulty('hard')" class="py-2.5 rounded-xl text-xs font-extrabold border-2 shadow-sm transition-all bounce-active flex items-center justify-start px-4 gap-3 bg-white text-rose-800 border-rose-200 hover:border-rose-400">
-                                <span class="text-lg leading-none">🔴</span>
-                                <span>Sulit</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Tombol Aksi Navigasi: Saling Menumpuk Vertikal Memudahkan Jangkauan -->
-                    <div class="flex flex-col gap-2 w-full mt-auto">
-                        <button onclick="confirmAndStartGame()" class="w-full bg-gradient-to-b from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white font-extrabold py-2.5 rounded-xl shadow-md border-b-4 border-indigo-800 bounce-active text-xs flex items-center justify-center gap-1.5">
-                            <span>Mulai Main! 🚀</span>
+                <!-- KOLOM KIRI: Tingkat Kesulitan (Dibuat dalam Kotak Mandiri) -->
+                <div id="diff-setting-container" class="w-full md:w-1/4 bg-white/80 dark:bg-slate-900/90 p-3 sm:p-4 rounded-2xl border-2 border-indigo-100 dark:border-slate-850 shadow-sm flex flex-col justify-center flex-shrink-0">
+                    <span class="block text-[9px] md:text-[11px] font-black text-indigo-900 dark:text-amber-300 mb-2 uppercase tracking-widest text-center md:text-left transition-colors" id="diff-setting-label">📶 Tingkat Kesulitan:</span>
+                    <div class="flex flex-col gap-2 w-full">
+                        <button id="btn-diff-easy" onclick="selectDifficulty('easy')" class="py-2.5 rounded-xl text-xs font-extrabold border-2 shadow-sm transition-all bounce-active flex items-center justify-start px-4 gap-3 bg-white text-emerald-800 border-emerald-200 hover:border-emerald-400">
+                            <span class="text-lg leading-none">🟢</span>
+                            <span>Mudah</span>
                         </button>
-                        <button onclick="cancelCharacterSelection()" class="w-full bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-2 rounded-xl bounce-active text-xs flex items-center justify-center gap-1">
-                            <span>⬅️ Kembali</span>
+                        <button id="btn-diff-medium" onclick="selectDifficulty('medium')" class="py-2.5 rounded-xl text-xs font-extrabold border-2 shadow-sm transition-all bounce-active flex items-center justify-start px-4 gap-3 bg-indigo-600 text-white border-indigo-600">
+                            <span class="text-lg leading-none">🟡</span>
+                            <span>Sedang</span>
+                        </button>
+                        <button id="btn-diff-hard" onclick="selectDifficulty('hard')" class="py-2.5 rounded-xl text-xs font-extrabold border-2 shadow-sm transition-all bounce-active flex items-center justify-start px-4 gap-3 bg-white text-rose-800 border-rose-200 hover:border-rose-400">
+                            <span class="text-lg leading-none">🔴</span>
+                            <span>Sulit</span>
                         </button>
                     </div>
                 </div>
 
-                <!-- PANEL KANAN: Grid Pemilihan Karakter Pendukung Interaktif -->
-                <div class="w-full md:w-2/3 flex flex-col justify-start min-h-0 overflow-y-auto">
+                <!-- KOLOM TENGAH: Grid Pemilihan Karakter Pendukung Interaktif -->
+                <div class="w-full md:w-2/4 flex flex-col justify-start min-h-0 overflow-y-auto">
                     <div id="char-selection-grid" class="flex flex-wrap gap-2 justify-center w-full min-h-0">
                         <!-- Diisi secara dinamis lewat JS -->
                     </div>
+                </div>
+
+                <!-- KOLOM KANAN: Tombol Aksi Utama (Mulai & Kembali) - Dipindah ke Ujung Kanan, Terpisah dan Sangat Mudah Diakses -->
+                <div id="action-navigation-container" class="w-full md:w-1/4 bg-white/95 dark:bg-slate-900/95 p-3 sm:p-4 rounded-2xl border-2 border-indigo-200 dark:border-indigo-950 shadow-md flex flex-col justify-center gap-3 flex-shrink-0">
+                    <span class="block text-[9px] md:text-[11px] font-black text-indigo-900 dark:text-amber-300 mb-1.5 uppercase tracking-widest text-center transition-colors">🎮 Aksi Bermain:</span>
+                    <button onclick="confirmAndStartGame()" class="w-full bg-gradient-to-b from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white font-extrabold py-3 rounded-xl shadow-md border-b-4 border-indigo-800 bounce-active text-xs flex items-center justify-center gap-1.5 transition-all">
+                        <span>Mulai Main! 🚀</span>
+                    </button>
+                    <button onclick="cancelCharacterSelection()" class="w-full bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 text-slate-700 font-bold py-2.5 rounded-xl bounce-active text-xs flex items-center justify-center gap-1 transition-all">
+                        <span>⬅️ Kembali</span>
+                    </button>
                 </div>
 
             </div>
@@ -1667,7 +1677,7 @@
             const theme = themes[currentThemeIndex];
             
             const body = document.getElementById('game-body');
-            body.className = `bg-gradient-to-br ${theme.bg} h-screen flex flex-col justify-between overflow-hidden transition-all duration-700`;
+            body.className = `bg-gradient-to-br ${theme.bg} h-screen w-screen flex flex-col justify-between overflow-hidden transition-all duration-700`;
             
             document.getElementById('theme-btn-icon').textContent = theme.icon;
             
@@ -2225,7 +2235,7 @@
             speakText(randomQuote);
         }
 
-        // --- SELEKSI LEVEL & KESULITAN (DIPERBARUI DENGAN STRUKTUR VERTIKAL KIRI YANG BARU) ---
+        // --- SELEKSI LEVEL & KESULITAN (DIPERBARUI DENGAN STRUKTUR 3 PANEL VISUAL BARU) ---
         function selectDifficulty(diff) {
             initAudio(); 
             playSound('click');
@@ -2605,7 +2615,6 @@
                     document.getElementById(`p-speech-${pIdx}`).innerHTML = `Pecahkan balon <span class="text-pink-600 dark:text-pink-300 font-extrabold underline">${target.name}</span>!`;
 
                     const balloonContainer = document.createElement('div');
-                    // Menjamin tata letak tetap fleksibel tanpa overflow di HP Android/iOS Lanskap
                     balloonContainer.className = 'flex justify-around items-end w-full gap-2 py-1 h-full max-h-[110px] sm:max-h-[130px] relative';
                     
                     shuffledOptions.forEach((col, idx) => {
@@ -2650,7 +2659,6 @@
 
                     const grid = document.createElement('div');
                     
-                    // REVISI LAYAR SEDANG (MEDIUM): Ubah grid-cols-2 menjadi baris tunggal horizontal (flex-row)
                     if (currentDifficulty === 'medium') {
                         grid.className = 'flex justify-around items-center w-full gap-2 max-h-[110px] sm:max-h-[130px]';
                     } else {
@@ -2665,7 +2673,6 @@
                             ? 'p-1 bg-white dark:bg-slate-800 dark:border-slate-700 hover:bg-indigo-50/50 border border-indigo-100 rounded-xl shadow-sm bounce-active hover-wiggle flex flex-col items-center justify-center transition-all min-h-0'
                             : 'p-1.5 sm:p-2 bg-white dark:bg-slate-800 dark:border-slate-700 hover:bg-indigo-50/50 border-2 border-indigo-100 rounded-2xl shadow-sm bounce-active hover-wiggle flex flex-col items-center justify-center transition-all min-h-0';
                         
-                        // Khusus Sedang: Berikan batas lebar agar terbagi rata
                         if (currentDifficulty === 'medium') {
                             btn.className += ' w-full max-w-[100px]';
                         }
@@ -2703,7 +2710,6 @@
 
                     const wrapper = document.createElement('div');
                     
-                    // REVISI LAYAR SEDANG (MEDIUM): Ubah grid-cols-2 menjadi baris tunggal horizontal (flex-row)
                     if (currentDifficulty === 'medium') {
                         wrapper.className = 'flex justify-around items-center w-full gap-2 max-h-[110px] sm:max-h-[130px]';
                     } else {
@@ -2719,7 +2725,6 @@
                             ? 'p-1 bg-white dark:bg-slate-800 dark:border-slate-700 hover:bg-amber-50 border border-indigo-100 rounded-xl shadow-sm bounce-active hover-wiggle flex flex-col items-center justify-center transition-all'
                             : 'p-1.5 sm:p-2 bg-white dark:bg-slate-800 dark:border-slate-700 hover:bg-amber-50 border-2 border-indigo-100 rounded-2xl shadow-sm bounce-active hover-wiggle flex flex-col items-center justify-center transition-all';
                         
-                        // Khusus Sedang: Berikan batas lebar agar terbagi rata
                         if (currentDifficulty === 'medium') {
                             btn.className += ' w-full max-w-[100px]';
                         }
@@ -2779,7 +2784,7 @@
                         fruitEl.style.left = `${5 + idx * 25}%`;
                         fruitEl.style.animationDelay = `${idx * 0.8}s`; 
                         fruitEl.style.animationDuration = speedClass; 
-                        fruitEl.textContent = fr.emoji;
+                        fruitEl.textContentfr.emoji;
                         fruitEl.onclick = () => {
                             initAudio();
                             fruitEl.style.display = 'none'; 
@@ -2828,7 +2833,6 @@
                     deck.forEach((card, idx) => {
                         const cardBtn = document.createElement('button');
                         cardBtn.id = `card-${pIdx}-${idx}`;
-                        // Diubah ke satuan persen vh dinamis agar presisi tinggi Full HD 1080p
                         const cardHeight = isQuad ? 'h-[8vh] text-xs' : 'h-[11vh] text-base sm:text-lg';
                         cardBtn.className = `${cardHeight} w-full bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-xl font-bold flex items-center justify-center shadow-md cursor-pointer transition-all transform min-h-0`;
                         cardBtn.textContent = '❓';
@@ -2898,7 +2902,6 @@
                     document.getElementById('p-speech-' + pIdx).innerHTML = "Ada berapa buah <span class='text-emerald-700 dark:text-emerald-300 font-extrabold'>" + emoji + "</span>?";
 
                     const bubbleFrame = document.createElement('div');
-                    // Menggunakan tinggi persen vh dinamis agar stabil di mode Full HD Lanskap HP
                     bubbleFrame.className = 'flex flex-wrap justify-center items-center gap-1 bg-emerald-50/10 p-1 rounded-xl border border-dashed border-emerald-200 h-[8vh] sm:h-[10vh] w-full mb-1.5 flex-shrink-0';
                     
                     for (let i = 0; i < count; i++) {
