@@ -34,8 +34,131 @@
             #landscape-lock-overlay {
                 display: flex !important;
             }
-            #game-header, #game-main, #game-footer, #welcome-splash {
+            #game-header, #game-main, #game-footer, #welcome-splash, #exit-goodbye-overlay {
                 display: none !important;
+            }
+        }
+
+        /* --- OPTIMALISASI TINGGI SANGAT PRESISI UNTUK LAYAR HP LANSKAP (MAX-HEIGHT: 540PX) --- */
+        @media (max-height: 540px) {
+            /* Area Welcome Splash */
+            #welcome-splash > div {
+                max-width: 95vw !important;
+                max-height: 96vh !important;
+                padding: 0.75rem !important;
+                border-radius: 1.5rem !important;
+                border-width: 4px !important;
+            }
+            #welcome-splash .grid {
+                gap: 0.5rem !important;
+            }
+            #welcome-splash h2 {
+                font-size: 1.25rem !important;
+                margin-bottom: 0.125rem !important;
+            }
+            #welcome-splash label, #welcome-splash span {
+                font-size: 0.75rem !important;
+                margin-top: 0.25rem !important;
+                margin-bottom: 0.25rem !important;
+            }
+            #welcome-splash input {
+                padding-top: 0.35rem !important;
+                padding-bottom: 0.35rem !important;
+                font-size: 0.75rem !important;
+                border-radius: 0.75rem !important;
+            }
+            #welcome-splash p {
+                font-size: 0.65rem !important;
+                margin-top: 0.25rem !important;
+            }
+            #welcome-splash button {
+                padding-top: 0.45rem !important;
+                padding-bottom: 0.45rem !important;
+                font-size: 0.8rem !important;
+                margin-top: 0.5rem !important;
+                border-radius: 0.75rem !important;
+            }
+            #avatar-grid button {
+                height: 2.25rem !important;
+                width: 2.25rem !important;
+                font-size: 1.25rem !important;
+                border-radius: 0.75rem !important;
+            }
+            
+            /* Area Menu Utama */
+            #view-menu {
+                padding: 0.75rem !important;
+                gap: 0.75rem !important;
+                max-height: 94vh !important;
+            }
+            #menu-mascot {
+                width: 5.5rem !important;
+                height: 5.5rem !important;
+                margin-top: 0px !important;
+            }
+            #menu-mascot div:first-child {
+                font-size: 2.5rem !important;
+            }
+            #view-menu h2 {
+                font-size: 1.25rem !important;
+            }
+            #view-menu p {
+                font-size: 0.7rem !important;
+                margin-bottom: 0.35rem !important;
+            }
+            #view-menu .mb-3, #view-menu .mb-2.5, #view-menu .mb-2 {
+                margin-bottom: 0.25rem !important;
+            }
+            #view-menu button {
+                padding-top: 0.35rem !important;
+                padding-bottom: 0.35rem !important;
+                font-size: 0.75rem !important;
+                border-radius: 0.5rem !important;
+            }
+            #view-menu .grid-cols-3 gap-2 {
+                gap: 0.25rem !important;
+            }
+
+            /* Area Pemilihan Karakter & Kesulitan */
+            #view-char-select {
+                padding: 0.75rem !important;
+                max-height: 94vh !important;
+            }
+            #char-title-text {
+                font-size: 1.25rem !important;
+            }
+            #char-subtitle-text {
+                font-size: 0.7rem !important;
+            }
+            #diff-setting-container {
+                padding: 0.35rem !important;
+                margin-bottom: 0.35rem !important;
+                border-radius: 1rem !important;
+            }
+            #diff-setting-container button {
+                padding-top: 0.35rem !important;
+                padding-bottom: 0.35rem !important;
+                font-size: 0.75rem !important;
+                border-radius: 0.5rem !important;
+            }
+            #char-selection-grid {
+                margin-bottom: 0.35rem !important;
+            }
+            #char-selection-grid .flex-col {
+                padding: 0.35rem !important;
+                border-radius: 1rem !important;
+                max-height: 35vh !important;
+            }
+            #char-selection-grid .w-24, #char-selection-grid .w-18, #char-selection-grid .w-14 {
+                width: 3.5rem !important;
+                height: 3.5rem !important;
+                font-size: 1.75rem !important;
+            }
+            #view-char-select .max-w-xs button {
+                padding-top: 0.35rem !important;
+                padding-bottom: 0.35rem !important;
+                font-size: 0.75rem !important;
+                border-radius: 0.75rem !important;
             }
         }
 
@@ -119,7 +242,7 @@
         }
     </style>
 </head>
-<body id="game-body" class="bg-gradient-to-br from-amber-100 via-orange-100 to-yellow-150 h-screen w-screen flex flex-col justify-between overflow-hidden text-slate-800">
+<body id="game-body" class="bg-gradient-to-br from-amber-100 via-orange-100 to-yellow-150 h-screen w-screen flex flex-col justify-between overflow-hidden text-slate-800 text-sm">
 
     <!-- OVERLAY PAKSA LANSKAP (OTOMATIS AKTIF DI HP/TABLET POTRET) -->
     <div id="landscape-lock-overlay" class="fixed inset-0 bg-gradient-to-b from-sky-400 to-indigo-600 z-50 flex flex-col items-center justify-center p-6 text-center text-white select-none">
@@ -129,6 +252,20 @@
             <p class="text-xs sm:text-sm font-medium opacity-90 leading-relaxed">
                 Taman Bermain Pintar akan jauh lebih luas dan seru jika dimainkan dalam posisi mendatar (**Lanskap**). Ayo miringkan HP atau Tabletmu sekarang!
             </p>
+        </div>
+    </div>
+
+    <!-- OVERLAY PAMITAN KELUAR HANGAT (TOMBOL KELUAR AKHIR PERMAINAN) -->
+    <div id="exit-goodbye-overlay" class="fixed inset-0 bg-gradient-to-b from-purple-600 via-indigo-700 to-slate-900 z-50 flex flex-col items-center justify-center p-4 text-center text-white hidden select-none">
+        <div class="bg-white/10 backdrop-blur-lg p-6 sm:p-8 rounded-[2.5rem] border-4 border-white/20 max-w-md w-full shadow-2xl animate-float-slow flex flex-col items-center">
+            <span class="text-7xl mb-4 block animate-bounce">🐰🥕✨👋</span>
+            <h2 class="text-2xl sm:text-3xl font-black mb-2">Sampai Jumpa Lagi!</h2>
+            <p class="text-xs sm:text-sm font-semibold opacity-90 leading-relaxed max-w-xs mb-6">
+                Kiki si Kelinci sangat senang belajar dan bermain bersamamu hari ini! Sekarang saatnya matikan layar, bantu Ayah Ibu, atau bermain di halaman luar ya. Kamu anak hebat!
+            </p>
+            <button onclick="window.close(); location.reload();" class="bg-gradient-to-r from-pink-500 to-rose-600 text-white font-black py-3 px-8 rounded-2xl shadow-lg border-b-4 border-rose-800 bounce-active transition-all text-xs sm:text-sm">
+                Tutup Taman Bermain 🏠
+            </button>
         </div>
     </div>
 
@@ -144,34 +281,41 @@
         <!-- Area Balon Interaktif di Latar Belakang -->
         <div id="splash-balloon-area" class="absolute inset-0 z-0"></div>
 
-        <!-- Kartu Utama Gerbang Taman Bermain Pintar -->
-        <div class="bg-white/95 dark:bg-slate-900/95 text-slate-800 dark:text-white p-4 sm:p-5 rounded-[2rem] shadow-[0_15px_40px_rgba(0,0,0,0.12)] border-4 sm:border-8 border-white dark:border-slate-800 max-w-md w-full transform transition-all z-10 text-center max-h-[88vh] overflow-y-auto flex flex-col justify-between">
-            <div class="relative">
-                <div class="mx-auto w-14 h-14 bg-gradient-to-tr from-pink-400 to-amber-300 rounded-full border-4 border-white shadow-lg flex items-center justify-center text-3xl animate-float-slow">
-                    🐰
+        <!-- Kartu Utama Gerbang Taman Bermain Pintar (OPTIMALISASI GRID UNTUK MENCEGAH TERPOTONG DI LAYAR HP) -->
+        <div class="bg-white/95 dark:bg-slate-900/95 text-slate-800 dark:text-white p-3 sm:p-5 rounded-[2rem] shadow-[0_15px_40px_rgba(0,0,0,0.12)] border-4 sm:border-8 border-white dark:border-slate-800 max-w-2xl w-full transform transition-all z-10 text-center max-h-[92vh] overflow-y-auto flex flex-col justify-between">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center min-h-0">
+                
+                <!-- Kolom Kiri: Judul & Input Nama -->
+                <div class="sm:col-span-5 flex flex-col items-center sm:items-start text-center sm:text-left">
+                    <div class="mx-auto sm:mx-0 w-12 h-12 bg-gradient-to-tr from-pink-400 to-amber-300 rounded-full border-2 border-white shadow-md flex items-center justify-center text-3xl animate-float-slow">
+                        🐰
+                    </div>
+                    <div class="mt-2">
+                        <h2 class="text-xl sm:text-2xl font-extrabold text-indigo-950 dark:text-amber-300 tracking-wide mb-1 leading-tight">Taman Pintar 🌟</h2>
+                        <span class="text-[9px] font-bold text-slate-500 dark:text-indigo-200 bg-indigo-50 dark:bg-slate-850 px-2 py-0.5 rounded-full border border-indigo-100 dark:border-slate-700 inline-block mt-1">
+                            💡 Pecahkan balon!
+                        </span>
+                    </div>
+                    <!-- Form Input Nama Singkat -->
+                    <div class="w-full mt-3">
+                        <label class="block text-[10px] font-black text-indigo-900 dark:text-indigo-300 uppercase tracking-wider mb-1">🎈 Siapa Namamu?</label>
+                        <input type="text" id="player-nickname" maxlength="12" placeholder="Tulis nama panggilanmu..." class="w-full bg-white dark:bg-slate-800 text-slate-800 dark:text-white font-extrabold text-xs px-3 py-2 rounded-xl border-2 border-indigo-200 dark:border-slate-700 focus:outline-none focus:border-indigo-500 dark:focus:border-amber-400 transition-all shadow-inner text-center">
+                    </div>
                 </div>
 
-                <div class="mt-3 mb-2">
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-indigo-950 dark:text-amber-300 tracking-wide mb-1 leading-tight">Taman Bermain Pintar 🌟</h2>
-                    <span class="text-[10px] sm:text-xs font-bold text-slate-500 dark:text-indigo-200 bg-indigo-50 dark:bg-slate-800 px-3 py-1 rounded-full border border-indigo-100 dark:border-slate-700 inline-block">
-                        💡 Pecahkan balon melayang di layar!
-                    </span>
-                </div>
-
-                <!-- Bagian Form Kustomisasi Cilik -->
-                <div class="bg-indigo-50/50 dark:bg-slate-950 p-2.5 sm:p-3.5 rounded-2xl border-2 border-indigo-100 dark:border-slate-800 text-left mb-3">
-                    <label class="block text-[10px] sm:text-xs font-black text-indigo-900 dark:text-indigo-300 uppercase tracking-wider mb-1">🎈 Siapa Namamu, Sahabat Pintar?</label>
-                    <input type="text" id="player-nickname" maxlength="12" placeholder="Tulis nama panggilanmu..." class="w-full bg-white dark:bg-slate-800 text-slate-800 dark:text-white font-extrabold text-xs sm:text-sm px-3 py-2 rounded-xl border-2 border-indigo-200 dark:border-slate-700 focus:outline-none focus:border-indigo-500 dark:focus:border-amber-400 transition-all shadow-inner text-center">
-                    
-                    <span class="block text-[10px] sm:text-xs font-black text-indigo-900 dark:text-indigo-300 uppercase tracking-wider mt-2.5 mb-1">✨ Pilih Lencana Petualanganmu:</span>
+                <!-- Kolom Kanan: Pemilihan Lencana Maskot -->
+                <div class="sm:col-span-7 flex flex-col justify-center bg-indigo-50/50 dark:bg-slate-950 p-2.5 rounded-2xl border border-indigo-100/80 dark:border-slate-800">
+                    <span class="block text-[10px] font-black text-indigo-900 dark:text-indigo-300 uppercase tracking-wider mb-2 text-center sm:text-left">✨ Pilih Lencana Petualanganmu:</span>
                     <div class="grid grid-cols-6 gap-1" id="avatar-grid">
                         <!-- Ditambahkan dinamis lewat JS -->
                     </div>
+                    <!-- Info kecil penjelas lencana -->
+                    <p class="text-[9px] text-slate-400 dark:text-slate-500 mt-2 text-center sm:text-left font-medium">Lencana ini akan menjadi karakter profesimu di game!</p>
                 </div>
             </div>
 
-            <!-- TOMBOL MASUK INSTAN -->
-            <button onclick="enterTamanPintar()" class="w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white text-sm sm:text-base font-black py-2.5 px-6 rounded-xl shadow-lg bounce-active transition-all border-b-4 border-emerald-800 flex items-center justify-center gap-2 animate-pulse flex-shrink-0">
+            <!-- TOMBOL MASUK INSTAN DI BAGIAN BAWAH MODAL -->
+            <button onclick="enterTamanPintar()" class="w-full mt-3 bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white text-xs sm:text-sm font-black py-2.5 px-6 rounded-xl shadow-lg bounce-active transition-all border-b-4 border-emerald-800 flex items-center justify-center gap-2 animate-pulse flex-shrink-0">
                 <span>Ayo Mulai Petualangan! 🚀</span>
             </button>
         </div>
@@ -231,8 +375,8 @@
     <!-- AREA UTAMA PERMAINAN (MENGGUNAKAN CONTROLLER MIN-H-0 & OVERFLOW HIDDEN UNTUK PRESISI BEBAS SCROLL) -->
     <main class="flex-grow flex items-center justify-center p-2 w-full max-w-7xl mx-auto overflow-hidden hidden min-h-0" id="game-main">
 
-        <!-- 1. TAMPILAN MENU UTAMA -->
-        <div id="view-menu" class="w-full max-w-4xl bg-white/60 backdrop-blur-md rounded-3xl p-4 md:p-6 shadow-2xl border-4 border-white flex flex-col md:flex-row items-center gap-4 md:gap-6 transition-all duration-300 relative h-full max-h-[82vh] md:max-h-[76vh] overflow-y-auto md:overflow-hidden min-h-0">
+        <!-- 1. TAMPILAN MENU UTAMA (TATA LETAK KOMPAK UNTUK PENCEGAHAN SCROLL DI LAYAR HP 1080P) -->
+        <div id="view-menu" class="w-full max-w-4xl bg-white/60 backdrop-blur-md rounded-3xl p-3 sm:p-5 shadow-2xl border-4 border-white flex flex-col md:flex-row items-center gap-3 md:gap-6 transition-all duration-300 relative h-full max-h-[82vh] md:max-h-[76vh] overflow-y-auto md:overflow-hidden min-h-0">
             
             <!-- Tombol Pojok Orang Tua dengan Kunci Pengaman -->
             <button onclick="triggerParentGate()" class="absolute top-3 right-3 bg-indigo-100/90 hover:bg-indigo-200/90 text-indigo-800 text-[9px] sm:text-xs font-extrabold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm bounce-active transition-all z-20">
@@ -248,9 +392,9 @@
                     <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-t-8 border-t-white dark:border-t-slate-800 border-x-8 border-x-transparent"></div>
                 </div>
 
-                <!-- Maskot Lucu Kiki si Kelinci (Interaktif!) -->
-                <div onclick="clickMascot()" id="menu-mascot" class="w-24 h-24 md:w-36 md:h-36 mt-4 md:mt-0 flex-shrink-0 animate-float-slow bg-gradient-to-tr from-pink-300 to-amber-200 rounded-full p-2 border-4 border-white shadow-xl flex items-center justify-center relative cursor-pointer group transition-transform hover:scale-105" title="Ketuk aku!">
-                    <div class="text-5xl md:text-6xl transition-transform group-hover:scale-110">🐰</div>
+                <!-- Maskot Kelinci Kiki Mini (Disesuaikan Tinggi Lanskap HP) -->
+                <div onclick="clickMascot()" id="menu-mascot" class="w-20 h-20 md:w-32 md:h-32 mt-4 md:mt-0 flex-shrink-0 animate-float-slow bg-gradient-to-tr from-pink-300 to-amber-200 rounded-full p-2 border-4 border-white shadow-xl flex items-center justify-center relative cursor-pointer group transition-transform hover:scale-105" title="Ketuk aku!">
+                    <div class="text-4xl md:text-5xl transition-transform group-hover:scale-110">🐰</div>
                     <div class="absolute -bottom-2 bg-pink-500 text-white font-bold px-2.5 py-0.5 rounded-full text-[8px] md:text-[9px] shadow-md flex items-center gap-1 leading-none">
                         <span>Ketuk Aku!</span>
                     </div>
@@ -259,7 +403,7 @@
 
             <!-- Pilihan Menu -->
             <div class="flex-grow text-center md:text-left flex flex-col justify-center w-full min-h-0">
-                <h2 class="text-base md:text-xl font-extrabold text-indigo-950 mb-0.5 leading-tight transition-colors" id="menu-title-text">
+                <h2 class="text-base md:text-lg font-extrabold text-indigo-950 mb-0.5 leading-tight transition-colors" id="menu-title-text">
                     Taman Bermain Pintar 🌟
                 </h2>
                 <p class="text-[10px] md:text-xs text-slate-600 mb-2 sm:mb-3 font-medium transition-colors" id="menu-subtitle-text">
@@ -289,10 +433,10 @@
                         <button id="btn-quest-5" onclick="selectQuestionsLimit(5)" class="py-1 rounded-xl text-[11px] font-bold border-2 shadow-sm transition-all duration-150 bounce-active bg-indigo-600 text-white border-indigo-600">
                             5 Pertanyaan
                         </button>
-                        <button id="btn-quest-10" onclick="selectQuestionsLimit(10)" class="py-1 rounded-xl text-[11px] font-bold border-2 shadow-sm transition-all duration-150 bounce-active bg-white text-indigo-800 border-indigo-200 hover:border-indigo-400 dark:bg-slate-850 dark:text-indigo-300 dark:border-slate-800">
+                        <button id="btn-quest-10" onclick="selectQuestionsLimit(10)" class="py-1 rounded-xl text-[11px] font-bold border-2 shadow-sm transition-all duration-150 bounce-active bg-white text-indigo-800 border-indigo-200 hover:border-indigo-400 dark:bg-slate-855 dark:text-indigo-300 dark:border-slate-800">
                             10 Pertanyaan
                         </button>
-                        <button id="btn-quest-endless" onclick="selectQuestionsLimit(999)" class="py-1 rounded-xl text-[11px] font-bold border-2 shadow-sm transition-all duration-150 bounce-active bg-white text-indigo-800 border-indigo-200 hover:border-indigo-400 dark:bg-slate-850 dark:text-indigo-300 dark:border-slate-800">
+                        <button id="btn-quest-endless" onclick="selectQuestionsLimit(999)" class="py-1 rounded-xl text-[11px] font-bold border-2 shadow-sm transition-all duration-150 bounce-active bg-white text-indigo-800 border-indigo-200 hover:border-indigo-400 dark:bg-slate-855 dark:text-indigo-300 dark:border-slate-800">
                             ♾️ Sepuasnya!
                         </button>
                     </div>
@@ -301,14 +445,14 @@
                 <!-- Pilihan Usia -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     <!-- Tombol Usia 2-3 Tahun -->
-                    <button onclick="goToCharacterSelection(1)" class="group bg-gradient-to-b from-sky-400 to-blue-500 hover:from-sky-500 hover:to-blue-600 text-white p-2 sm:p-2 rounded-xl shadow-md border-b-4 border-blue-700 transition-all duration-150 bounce-active flex flex-col items-center justify-center min-h-0">
+                    <button onclick="goToCharacterSelection(1)" class="group bg-gradient-to-b from-sky-400 to-blue-500 hover:from-sky-500 hover:to-blue-600 text-white p-2 rounded-xl shadow-md border-b-4 border-blue-700 transition-all duration-150 bounce-active flex flex-col items-center justify-center min-h-0">
                         <span class="text-xl sm:text-2xl mb-0.5 group-hover:scale-110 transition-transform">🎨</span>
                         <span class="text-xs sm:text-sm font-bold">Adik Kecil</span>
                         <span class="text-[8px] bg-sky-200/40 px-2 py-0.5 rounded-full mt-0.5">Usia 2 - 3 Tahun</span>
                     </button>
 
                     <!-- Tombol Usia 4-6 Tahun -->
-                    <button onclick="goToCharacterSelection(2)" class="group bg-gradient-to-b from-emerald-400 to-green-500 hover:from-emerald-500 hover:to-green-600 text-white p-2 sm:p-2 rounded-xl shadow-md border-b-4 border-green-700 transition-all duration-150 bounce-active flex flex-col items-center justify-center min-h-0">
+                    <button onclick="goToCharacterSelection(2)" class="group bg-gradient-to-b from-emerald-400 to-green-500 hover:from-emerald-500 hover:to-green-600 text-white p-2 rounded-xl shadow-md border-b-4 border-green-700 transition-all duration-150 bounce-active flex flex-col items-center justify-center min-h-0">
                         <span class="text-xl sm:text-2xl mb-0.5 group-hover:scale-110 transition-transform">🧠</span>
                         <span class="text-xs sm:text-sm font-bold">Kakak Pintar</span>
                         <span class="text-[8px] bg-emerald-200/40 px-2 py-0.5 rounded-full mt-0.5">Usia 4 - 6 Tahun</span>
@@ -410,7 +554,7 @@
         <div class="theme-adaptive-modal bg-white text-slate-800 rounded-3xl p-5 md:p-6 max-w-md w-full shadow-2xl border-4 border-amber-300 relative font-sans max-h-[85vh] flex flex-col justify-between overflow-hidden">
             <button onclick="closeModal('guide-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-lg font-bold">✕</button>
             <div class="min-h-0 overflow-y-auto pr-1 flex-grow mb-3">
-                <span class="text-3xl mb-1 block animate-bounce">📋</span>
+                <span class="text-3xl mb-1 block animate-bounce flex-shrink-0">📋</span>
                 <h3 class="text-lg font-extrabold mb-0.5">Panduan Taman Pintar</h3>
                 <p class="text-[10px] text-slate-500 dark:text-indigo-200 mb-3">Tips dan aturan bermain seru untuk anak-anak dan orang tua.</p>
 
@@ -509,12 +653,16 @@
                 </div>
             </div>
 
-            <div class="flex flex-col gap-1.5 flex-shrink-0">
-                <button onclick="restartCurrentGame()" class="w-full bg-gradient-to-b from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-teal-500 text-white font-extrabold py-2 rounded-xl shadow-lg border-b-4 border-indigo-800 bounce-active transition-all text-xs">
+            <!-- TIGA TOMBOL STRATEGIS UNTUK AKHIR PERMAINAN TERMASUK KELUAR & ISTIRAHAT -->
+            <div class="grid grid-cols-3 gap-1.5 flex-shrink-0">
+                <button onclick="restartCurrentGame()" class="w-full bg-gradient-to-b from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white font-extrabold py-2 px-1 rounded-xl shadow-md bounce-active transition-all text-[10px] sm:text-xs leading-tight">
                     🔁 Main Lagi
                 </button>
-                <button onclick="backToMenu()" class="w-full bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-2 rounded-xl bounce-active text-xs">
+                <button onclick="backToMenu()" class="w-full bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-2 px-1 rounded-xl bounce-active text-[10px] sm:text-xs leading-tight">
                     🏠 Menu Utama
+                </button>
+                <button onclick="triggerGoodbyeOverlay()" class="w-full bg-gradient-to-r from-red-400 to-rose-500 hover:from-red-500 hover:to-rose-600 text-white font-black py-2 px-1 rounded-xl shadow-md bounce-active transition-all border-b-2 border-rose-700 text-[10px] sm:text-xs leading-tight">
+                    👋 Keluar & Rest
                 </button>
             </div>
         </div>
@@ -864,8 +1012,8 @@
             }
         }
 
+        // --- PLAY SOUND DENGAN SYNTHESIZER PREMIUM ---
         function playSound(type) {
-            // Suara klik & letusan balon tidak dipengaruhi voiceEnabled lisan
             initAudio();
 
             const osc = audioCtx.createOscillator();
@@ -1040,7 +1188,7 @@
             localStorage.setItem('parent_stats_multidiff_tamanPintar', JSON.stringify(parentStats));
         }
 
-        // --- PROSEDURAL MUSIK ANAK-ANAK (BINTANG KECIL VS MELODI RELAKSASI KETIKA ISTIRAHAT) ---
+        // --- PROSEDURAL MUSIK ANAK-ANAK (DENGAN TEKNOLOGI DUAL-OSCILLATOR HARMONIC UNTUK KOTAK MUSIK PREMIUM) ---
         let bgmIntervalId = null;
         let bgmStep = 0;
 
@@ -1071,55 +1219,90 @@
             392.00, 349.23, 293.66, 196.00, 293.66, 349.23
         ];
 
+        // Melodi Lullaby Lembut untuk Layar Keluar/Pamit Kiki
+        const goodbyeMelody = [
+            392.00, 329.63, 329.63, 349.23, 293.66, 293.66, 261.63, 293.66, 329.63, 392.00,
+            392.00, 329.63, 329.63, 349.23, 293.66, 293.66, 261.63, 329.63, 261.63, 0
+        ];
+
         const kidsBass = [
             130.81, 130.81, 174.61, 130.81, 174.61, 130.81, 196.00, 196.00,
             174.61, 174.61, 130.81, 130.81, 196.00, 196.00, 130.81, 130.81
         ];
 
+        // Melacak tipe BGM aktif saat ini (kuis, istirahat, atau keluar)
+        let activeBgmType = 'quiz'; // 'quiz', 'rest', 'goodbye'
+
         function playBGMNote() {
             if (!musicEnabled || !audioCtx) return;
             if (audioCtx.state === 'suspended') return;
 
-            // Jika sedang dalam layar istirahat (playtimeModalOpen), gunakan restMelody yang lambat & menenangkan
-            const isRestMode = playtimeModalOpen;
-            const melody = isRestMode ? restMelody : kidsMelody;
+            let melody = kidsMelody;
+            let isRestMode = (activeBgmType === 'rest');
+            let isGoodbyeMode = (activeBgmType === 'goodbye');
+
+            if (isRestMode) {
+                melody = restMelody;
+            } else if (isGoodbyeMode) {
+                melody = goodbyeMelody;
+            }
             
             const stepIndex = bgmStep % melody.length;
             const freq = melody[stepIndex];
 
             if (freq > 0) {
-                const osc = audioCtx.createOscillator();
-                const gainNode = audioCtx.createGain();
+                // Oscillator 1: Gelombang Triangle (Fokus Dasar Nada Bulat)
+                const osc1 = audioCtx.createOscillator();
+                const gainNode1 = audioCtx.createGain();
                 
-                // Lowpass filter untuk membuat suara kotak musik mainan (music box) lembut & bulat
+                // Oscillator 2: Gelombang Sine Oktaf Atas ( Harmonisasi Gemerincing Bell/Music Box)
+                const osc2 = audioCtx.createOscillator();
+                const gainNode2 = audioCtx.createGain();
+
                 const filter = audioCtx.createBiquadFilter();
                 filter.type = 'lowpass';
-                filter.frequency.setValueAtTime(1200, audioCtx.currentTime);
+                filter.frequency.setValueAtTime(isRestMode || isGoodbyeMode ? 900 : 1500, audioCtx.currentTime);
 
-                osc.connect(filter);
-                filter.connect(gainNode);
-                gainNode.connect(audioCtx.destination);
+                osc1.connect(filter);
+                filter.connect(gainNode1);
+                gainNode1.connect(audioCtx.destination);
+
+                osc2.connect(filter);
+                filter.connect(gainNode2);
+                gainNode2.connect(audioCtx.destination);
                 
-                // Gelombang triangle yang manis mirip gambang kayu anak
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                osc1.type = 'triangle';
+                osc1.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+                osc2.type = 'sine';
+                osc2.frequency.setValueAtTime(freq * 2, audioCtx.currentTime); // 1 Oktaf Lebih Tinggi
                 
-                // Envelope volume lembut yang menurun bertahap (lebih sunyi saat istirahat)
-                gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
-                gainNode.gain.linearRampToValueAtTime(isRestMode ? 0.03 : 0.06, audioCtx.currentTime + 0.05); 
-                gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + (isRestMode ? 1.5 : 0.8));
+                // Atur volume dasar (menjamin "tidak terlalu kecil" dan terdengar renyah ceria)
+                const targetVolume1 = isRestMode || isGoodbyeMode ? 0.04 : 0.12; 
+                const targetVolume2 = isRestMode || isGoodbyeMode ? 0.02 : 0.05; // Lebih kecil untuk harmoni pengiring
+
+                gainNode1.gain.setValueAtTime(0, audioCtx.currentTime);
+                gainNode1.gain.linearRampToValueAtTime(targetVolume1, audioCtx.currentTime + 0.04); 
+                gainNode1.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + (isRestMode || isGoodbyeMode ? 1.6 : 0.95));
+
+                gainNode2.gain.setValueAtTime(0, audioCtx.currentTime);
+                gainNode2.gain.linearRampToValueAtTime(targetVolume2, audioCtx.currentTime + 0.04); 
+                gainNode2.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + (isRestMode || isGoodbyeMode ? 1.4 : 0.85));
                 
-                osc.start(audioCtx.currentTime);
-                osc.stop(audioCtx.currentTime + (isRestMode ? 1.6 : 0.9));
+                osc1.start(audioCtx.currentTime);
+                osc1.stop(audioCtx.currentTime + (isRestMode || isGoodbyeMode ? 1.7 : 1.0));
+
+                osc2.start(audioCtx.currentTime);
+                osc2.stop(audioCtx.currentTime + (isRestMode || isGoodbyeMode ? 1.5 : 0.9));
             }
 
-            // Memainkan bas lembut pengiring setiap 2 ketukan (hanya saat bermain kuis ceria)
-            if (!isRestMode && bgmStep % 2 === 0) {
+            // Memainkan bas lembut pengiring hanya saat bermain kuis ceria
+            if (!isRestMode && !isGoodbyeMode && bgmStep % 2 === 0) {
                 playBGMBass();
             }
 
             // Atur ketukan berikutnya dinamis sesuai durasi melodi (istirahat dimainkan sangat lambat)
-            const beatDuration = isRestMode ? 1000 : (kidsBeats[stepIndex] * 400); 
+            const beatDuration = (isRestMode || isGoodbyeMode) ? 750 : (kidsBeats[stepIndex] * 380); 
             bgmStep++;
 
             if (bgmIntervalId) {
@@ -1138,7 +1321,7 @@
             const filter = audioCtx.createBiquadFilter();
             
             filter.type = 'lowpass';
-            filter.frequency.setValueAtTime(400, audioCtx.currentTime);
+            filter.frequency.setValueAtTime(350, audioCtx.currentTime);
 
             osc.connect(filter);
             filter.connect(gainNode);
@@ -1150,11 +1333,11 @@
             
             osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
             gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
-            gainNode.gain.linearRampToValueAtTime(0.03, audioCtx.currentTime + 0.1); 
-            gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.2);
+            gainNode.gain.linearRampToValueAtTime(0.04, audioCtx.currentTime + 0.08); 
+            gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.1);
             
             osc.start(audioCtx.currentTime);
-            osc.stop(audioCtx.currentTime + 1.3);
+            osc.stop(audioCtx.currentTime + 1.2);
         }
 
         function startBGM() {
@@ -1299,7 +1482,7 @@
                 
                 area.appendChild(balloon);
                 
-                // Bersihkan balon setelah melayang keluar layar
+                // Berisihkan balon setelah melayang keluar layar
                 setTimeout(() => {
                     if (balloon.parentNode) {
                         balloon.remove();
@@ -1358,6 +1541,7 @@
             }
 
             // Putar musik secara otomatis karena sudah ada interaksi tombol masuk
+            activeBgmType = 'quiz';
             startBGM();
 
             speakText(`Selamat datang ${childNickname} di Taman Bermain Pintar! Kiki si Kelinci sangat senang bertemu denganmu. Lencanamu adalah ${currentBadge.name}. Ayo, kita pilih tingkat kuis dan jumlah pemain untuk mulai berpetualang!`).then(() => {
@@ -1408,6 +1592,7 @@
             stopAllSpeech();
             
             // Jaga agar BGM tetap bermain saat kembali ke menu, atau mulai lagi jika berhenti
+            activeBgmType = 'quiz';
             startBGM();
             
             closeModal('result-modal');
@@ -1491,7 +1676,7 @@
             const charTitleText = document.getElementById('char-title-text');
             const charSubText = document.getElementById('char-subtitle-text');
             const diffSettingLabel = document.getElementById('diff-setting-label');
-            const rekorAdikBox = document.getElementById('rekor-adip-box');
+            const rekorAdikBox = document.getElementById('rekor-adik-box');
             const rekorKakakBox = document.getElementById('rekor-kakak-box');
 
             if (theme.id === 'night') {
@@ -1638,7 +1823,7 @@
             
             // Mainkan Rest BGM melodi yang tenang secara otomatis untuk menemani istirahat anak
             if (musicEnabled) {
-                // Setel ulang step agar memutar musik istirahat dari awal
+                activeBgmType = 'rest';
                 bgmStep = 0; 
                 startBGM(); 
             }
@@ -1674,6 +1859,26 @@
             });
         }
 
+        // --- EVENT TRIGGER PAMITAN KELUAR HANGAT (TOMBOL KELUAR) ---
+        function triggerGoodbyeOverlay() {
+            closeModal('result-modal');
+            stopBGM();
+            stopAllSpeech();
+
+            // Ubah mode musik menjadi goodbye laras lembut
+            if (musicEnabled) {
+                activeBgmType = 'goodbye';
+                bgmStep = 0;
+                startBGM();
+            }
+
+            // Tampilkan pamitan visual
+            document.getElementById('exit-goodbye-overlay').classList.remove('hidden');
+            
+            // Salam lisan Kiki si kelinci
+            speakText(`Terima kasih banyak sudah bermain bersamaku hari ini, ${childNickname}! Kamu telah menunjukkan kecerdasan yang luar biasa hari ini. Sekarang saatnya matikan layar, regangkan tubuhmu, dan istirahat ya! Sampai jumpa besok pagi, sayaaaang kamu!`);
+        }
+
         function updateTimeoutCountdownUI() {
             const minutes = Math.floor(timeoutCountdownSeconds / 60);
             const seconds = timeoutCountdownSeconds % 60;
@@ -1701,6 +1906,7 @@
                 modal.classList.add('hidden');
                 playtimeModalOpen = false;
                 stopBGM(); // Hentikan melodi istirahat sejenak
+                activeBgmType = 'quiz';
                 bgmStep = 0; // Kembalikan langkah musik ke kuis ceria
                 startPlaytimeTracker(); // Lanjutkan timer bermain
                 startBGM(); // Putar kembali BGM ceria
@@ -2025,11 +2231,11 @@
             activePlayersCount = count;
             
             for (let i of [1, 2, 4]) {
-                const btn = document.getElementById(`btn-player-${i}`);
+                const btn = document.getElementById('btn-player-' + i);
                 if (i === count) {
-                    btn.className = "py-2 rounded-xl text-xs font-bold border-2 shadow-sm transition-all duration-150 bounce-active bg-indigo-600 text-white border-indigo-600";
+                    btn.className = "py-1 rounded-xl text-xs font-bold border-2 shadow-sm transition-all duration-150 bounce-active bg-indigo-600 text-white border-indigo-600";
                 } else {
-                    btn.className = "py-2 rounded-xl text-xs font-bold border-2 shadow-sm transition-all duration-150 bounce-active bg-white text-indigo-800 border-indigo-200 hover:border-indigo-400 dark:bg-slate-850 dark:text-indigo-300 dark:border-slate-800";
+                    btn.className = "py-1 rounded-xl text-xs font-bold border-2 shadow-sm transition-all duration-150 bounce-active bg-white text-indigo-800 border-indigo-200 hover:border-indigo-400 dark:bg-slate-850 dark:text-indigo-300 dark:border-slate-800";
                 }
             }
             
@@ -2094,15 +2300,15 @@
             const grid = document.getElementById('char-selection-grid');
             grid.innerHTML = '';
 
-            let colClass = "w-full max-w-[200px] h-[210px]";
-            if (activePlayersCount === 2) colClass = "w-full md:w-[48%] max-w-[280px] h-[230px]";
-            if (activePlayersCount === 4) colClass = "w-full sm:w-[48%] md:w-[23%] max-w-[180px] h-[190px]";
+            let colClass = "w-full max-w-[160px] h-[28vh] min-h-[140px]";
+            if (activePlayersCount === 2) colClass = "w-full md:w-[48%] max-w-[240px] h-[30vh] min-h-[145px]";
+            if (activePlayersCount === 4) colClass = "w-full sm:w-[48%] md:w-[23%] max-w-[140px] h-[26vh] min-h-[125px]";
 
             for (let i = 0; i < activePlayersCount; i++) {
                 const playerProf = selectedProfessionsForSession[i];
                 
                 const card = document.createElement('div');
-                card.className = `flex flex-col p-3 rounded-2xl border-4 bg-white shadow-lg items-center ${colClass} border-dashed ${playerPanelBgStyles[i]} justify-between`;
+                card.className = `flex flex-col p-3 rounded-2xl border-4 bg-white shadow-lg items-center ${colClass} border-dashed ${playerPanelBgStyles[i]} justify-between min-h-0 h-full`;
                 
                 // Penskalaan ukuran avatar agar pas di IFP maupun layar HP kecil
                 const avatarSize = activePlayersCount === 4 ? 'w-14 h-14 text-3xl' : 'w-18 h-18 text-4xl';
@@ -2433,7 +2639,7 @@
                     document.getElementById(`p-speech-${pIdx}`).innerHTML = `Tangkap buah <span class="text-pink-600 font-extrabold">${target.name}</span>!`;
 
                     const fallingArea = document.createElement('div');
-                    fallingArea.className = 'w-full h-full min-h-[100px] max-h-[11vh] sm:max-h-[13vh] bg-slate-900/5 dark:bg-slate-800/10 rounded-xl border border-dashed border-slate-200 dark:border-slate-700 relative overflow-hidden flex items-center justify-center';
+                    fallingArea.className = 'w-full h-full min-h-[100px] max-h-[11vh] sm:max-h-[13vh] bg-slate-900/5 dark:bg-slate-850/10 rounded-xl border border-dashed border-slate-200 dark:border-slate-700 relative overflow-hidden flex items-center justify-center';
                     
                     const fruitsToSpawn = [
                         target,
@@ -2573,7 +2779,7 @@
                     
                     for (let i = 0; i < count; i++) {
                         const bubble = document.createElement('span');
-                        const bubbleSize = isQuad ? 'text-base' : 'text-lg sm:text-xl';
+                        const bubbleSize = isQuad ? 'text-sm' : 'text-lg sm:text-xl';
                         bubble.className = `${bubbleSize} animate-float-slow leading-none`;
                         bubble.style.animationDelay = `${i * 0.3}s`;
                         bubble.textContent = emoji;
@@ -2981,35 +3187,47 @@
             triggerEndGameSession();
         }
 
+        // --- KELUAR TANPA MENYIMPAN ---
         function exitGameWithoutSaving() {
             closeModal('exit-modal');
             backToMenu();
         }
 
+        // --- RESTART GAME ---
         function restartCurrentGame() {
             closeModal('result-modal');
             confirmAndStartGame();
         }
 
-        // PEMICU AUTOPLAY CERIA SAAT SENTUHAN PERTAMA DI LAYAR
-        document.addEventListener('click', function() {
+        // PEMICU UNTUK MEMBUKA BLOKIR AUDIO DI MOBILE HP (SANGAT ROBUST)
+        function unlockAudio() {
             initAudio();
-            if (musicEnabled && !bgmIntervalId) {
-                startBGM();
+            if (audioCtx) {
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                if (musicEnabled && !bgmIntervalId) {
+                    startBGM();
+                }
             }
-        }, { once: true });
-
-        document.addEventListener('touchstart', function() {
-            initAudio();
-            if (musicEnabled && !bgmIntervalId) {
-                startBGM();
-            }
-        }, { once: true });
+            // Hapus listener setelah Web Audio berhasil tidak terkunci
+            document.removeEventListener('click', unlockAudio);
+            document.removeEventListener('touchstart', unlockAudio);
+        }
+        document.addEventListener('click', unlockAudio);
+        document.addEventListener('touchstart', unlockAudio);
 
         // Inisialisasi awal saat halaman termuat sepenuhnya
         window.onload = function() {
-            document.getElementById('high-score-1').textContent = highScores[1];
-            document.getElementById('high-score-2').textContent = highScores[2];
+            // PERBAIKAN BUG UTAMA: Menyelaraskan pencarian ID dari rekor-adip-box menjadi rekor-adik-box yang valid di HTML
+            const rekorAdikBox = document.getElementById('rekor-adik-box');
+            if (rekorAdikBox) {
+                document.getElementById('high-score-1').textContent = highScores[1];
+            }
+            const rekorKakakBox = document.getElementById('rekor-kakak-box');
+            if (rekorKakakBox) {
+                document.getElementById('high-score-2').textContent = highScores[2];
+            }
             
             // Generate visual avatar cilik di awal splash screen
             generateSplashAvatarGrid();
