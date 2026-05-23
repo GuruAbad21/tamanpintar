@@ -299,7 +299,7 @@
                     </div>
                     <div class="mt-2">
                         <h2 class="text-xl sm:text-2xl font-extrabold text-indigo-950 dark:text-amber-300 tracking-wide mb-1 leading-tight">Taman Pintar 🌟</h2>
-                        <span class="text-[9px] font-bold text-slate-500 dark:text-indigo-200 bg-indigo-50 dark:bg-slate-850 px-2 py-0.5 rounded-full border border-indigo-100 dark:border-slate-700 inline-block mt-1">
+                        <span class="text-[9px] font-bold text-slate-500 dark:text-indigo-200 bg-indigo-50 dark:bg-slate-855 px-2 py-0.5 rounded-full border border-indigo-100 dark:border-slate-700 inline-block mt-1">
                             💡 Pecahkan balon!
                         </span>
                     </div>
@@ -345,7 +345,7 @@
             
             <!-- Kontrol Header -->
             <div class="flex items-center flex-wrap justify-center gap-1.5 sm:gap-2">
-                <!-- Indikator Waktu Bermain Aktif Sesi Ini -->
+                <!-- Indikator Waktu Bermain Sesi Ini -->
                 <div id="playtime-indicator" class="bg-amber-100 dark:bg-slate-800 border border-amber-200 dark:border-slate-700 rounded-xl px-2 py-0.5 flex items-center gap-1 text-[9px] sm:text-xs font-black text-amber-700 dark:text-amber-300">
                     <span>⏱️ Main:</span>
                     <span id="playtime-header-timer" class="font-mono">00:00</span>
@@ -363,7 +363,7 @@
                 <button onclick="toggleMusic()" id="music-btn" class="bg-indigo-50 hover:bg-indigo-100 dark:bg-slate-800 dark:hover:bg-slate-700 p-1 rounded-lg shadow-sm bounce-active transition-all border border-indigo-200 dark:border-slate-700 flex items-center justify-center h-8 w-8" title="Musik Latar Belakang">
                     <span id="music-icon" class="text-sm">🎵</span>
                 </button>
-                <!-- Tombol Suara Pemandu Kiki (Ikon Orang Bicara, Default: On) -->
+                <!-- Tombol Suara Pemandu Kiki -->
                 <button onclick="toggleSound()" id="sound-btn" class="bg-emerald-50 hover:bg-emerald-100 dark:bg-slate-800 dark:hover:bg-slate-700 p-1 rounded-lg shadow-sm bounce-active transition-all border border-emerald-200 dark:border-slate-700 flex items-center justify-center h-8 w-8" title="Suara Pemandu">
                     <span id="sound-icon" class="text-sm">🗣️</span>
                 </button>
@@ -379,10 +379,10 @@
         </header>
     </div>
 
-    <!-- AREA UTAMA PERMAINAN (MENGGUNAKAN CONTROLLER MIN-H-0 & OVERFLOW HIDDEN UNTUK PRESISI BEBAS SCROLL) -->
+    <!-- AREA UTAMA PERMAINAN -->
     <main class="flex-grow flex items-center justify-center p-2 w-full max-w-7xl mx-auto overflow-hidden hidden min-h-0" id="game-main">
 
-        <!-- 1. TAMPILAN MENU UTAMA (TATA LETAK KOMPAK UNTUK PENCEGAHAN SCROLL DI LAYAR HP 1080P) -->
+        <!-- 1. TAMPILAN MENU UTAMA -->
         <div id="view-menu" class="w-full max-w-4xl bg-white/60 backdrop-blur-md rounded-3xl p-3 sm:p-5 shadow-2xl border-4 border-white flex flex-col md:flex-row items-center gap-3 md:gap-6 transition-all duration-300 relative h-full max-h-[82vh] md:max-h-[76vh] overflow-y-auto md:overflow-hidden min-h-0">
             
             <!-- Tombol Pojok Orang Tua dengan Kunci Pengaman -->
@@ -390,16 +390,16 @@
                 <span>👪 Area Orang Tua</span>
             </button>
 
-            <!-- Wadah Maskot Terintegrasi dengan Balon Ucapan Sambutan Real-Time -->
+            <!-- Wadah Maskot Terintegrasi dengan Balon Ucapan -->
             <div class="relative flex flex-col items-center mt-4 md:mt-0 flex-shrink-0">
-                <!-- BALON UCAPAN CERIA MASCOT (SPEECH BUBBLE ADAPTIF) -->
+                <!-- BALON UCAPAN CERIA MASCOT -->
                 <div id="mascot-speech-bubble" class="absolute -top-14 bg-white dark:bg-slate-800 text-indigo-950 dark:text-amber-300 border border-indigo-200 dark:border-slate-700 px-4 py-2 rounded-xl shadow-md text-[10px] font-bold max-w-[180px] leading-tight hidden z-20 transition-all duration-300 text-center animate-bounce">
                     <span id="bubble-text">Halo!</span>
                     <!-- Panah Balon Ucapan -->
                     <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-t-8 border-t-white dark:border-t-slate-800 border-x-8 border-x-transparent"></div>
                 </div>
 
-                <!-- Maskot Kelinci Kiki Mini (Disesuaikan Tinggi Lanskap HP) -->
+                <!-- Maskot Kelinci Kiki Mini -->
                 <div onclick="clickMascot()" id="menu-mascot" class="w-20 h-20 md:w-32 md:h-32 mt-4 md:mt-0 flex-shrink-0 animate-float-slow bg-gradient-to-tr from-pink-300 to-amber-200 rounded-full p-2 border-4 border-white shadow-xl flex items-center justify-center relative cursor-pointer group transition-transform hover:scale-105" title="Ketuk aku!">
                     <div class="text-4xl md:text-5xl transition-transform group-hover:scale-110">🐰</div>
                     <div class="absolute -bottom-2 bg-pink-500 text-white font-bold px-2.5 py-0.5 rounded-full text-[8px] md:text-[9px] shadow-md flex items-center gap-1 leading-none">
@@ -474,7 +474,7 @@
             </div>
         </div>
 
-        <!-- 1b. TAMPILAN PILIH KARAKTER/PROFESI & TINGKAT KESULITAN (TATA LETAK PANEL KIRI-KANAN TEROPTIMALISASI) -->
+        <!-- 1b. TAMPILAN PILIH KARAKTER/PROFESI & TINGKAT KESULITAN -->
         <div id="view-char-select" class="w-full max-w-5xl bg-white/60 backdrop-blur-md rounded-3xl p-4 md:p-5 shadow-2xl border-4 border-white flex flex-col items-center transition-all duration-300 hidden max-h-[82vh] overflow-y-auto min-h-0">
             <div class="text-center mb-2.5 flex-shrink-0">
                 <h2 class="text-lg md:text-xl font-extrabold text-indigo-950 transition-colors mb-0.5" id="char-title-text">Pengaturan Petualangan Belajar! 🌟</h2>
@@ -510,7 +510,7 @@
                     </div>
                 </div>
 
-                <!-- KOLOM KANAN: Tombol Aksi Utama (Mulai & Kembali) - Dipindah ke Ujung Kanan, Terpisah dan Sangat Mudah Diakses -->
+                <!-- KOLOM KANAN: Tombol Aksi Utama (Mulai & Kembali) -->
                 <div id="action-navigation-container" class="w-full md:w-1/4 bg-white/95 dark:bg-slate-900/95 p-3 sm:p-4 rounded-2xl border-2 border-indigo-200 dark:border-indigo-950 shadow-md flex flex-col justify-center gap-3 flex-shrink-0">
                     <span class="block text-[9px] md:text-[11px] font-black text-indigo-900 dark:text-amber-300 mb-1.5 uppercase tracking-widest text-center transition-colors">🎮 Aksi Bermain:</span>
                     <button onclick="confirmAndStartGame()" class="w-full bg-gradient-to-b from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white font-extrabold py-3 rounded-xl shadow-md border-b-4 border-indigo-800 bounce-active text-xs flex items-center justify-center gap-1.5 transition-all">
@@ -524,7 +524,7 @@
             </div>
         </div>
 
-        <!-- 2. LAYAR PERMAINAN AKTIF (DIKUNCI KOGNITIF AGAR BEBAS OVERFLOW) -->
+        <!-- 2. LAYAR PERMAINAN AKTIF -->
         <div id="view-game" class="w-full h-full flex flex-col transition-all duration-300 hidden overflow-hidden min-h-0">
             <!-- Kontrol Utama Game di Atas -->
             <div class="flex justify-between items-center bg-white/70 backdrop-blur-sm px-4 py-1.5 rounded-2xl mb-1.5 border border-white/60 shadow-sm flex-shrink-0" id="game-dashboard-header">
@@ -538,7 +538,7 @@
                 </div>
             </div>
 
-            <!-- CONTAINER DARI SELURUH PEMAIN (DIKUNCI TINGGINYA SECARA SANGAT PRESISI) -->
+            <!-- CONTAINER DARI SELURUH PEMAIN -->
             <div id="players-grid" class="grid gap-2 w-full flex-grow min-h-0 overflow-hidden h-full max-h-[66vh] sm:max-h-[69vh] md:max-h-[71vh]">
                 <!-- Panel-panel pemain akan ditambahkan otomatis di sini melalui Javascript -->
             </div>
@@ -563,7 +563,7 @@
         </div>
     </footer>
 
-    <!-- ================= MODAL - MODAL INTERAKTIF (DIKUNCI MAKSIMAL 85VH KONTROL SCROLL INTERNAL AGAR TIDAK TERPOTONG) ================= -->
+    <!-- ================= MODAL - MODAL INTERAKTIF ================= -->
 
     <!-- PANDUAN PETUNJUK BERMAIN -->
     <div id="guide-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4 z-50 hidden">
@@ -698,7 +698,7 @@
                 </h3>
                 <p class="text-[9px] md:text-xs text-slate-500 mb-2.5 flex-shrink-0">Selesaikan kuis untuk mendapatkan semua stiker lucu di bawah ini!</p>
 
-                <!-- Grid Album Stiker (DIKUNCI AGAR TIDAK OVERFLOW KELUAR BATAS MODAL) -->
+                <!-- Grid Album Stiker -->
                 <div id="sticker-album-grid" class="grid grid-cols-4 gap-2 p-2 bg-pink-50/10 rounded-2xl border-2 border-dashed border-pink-300 overflow-y-auto flex-grow min-h-0 max-h-[45vh]">
                     <!-- Diisi dinamis -->
                 </div>
@@ -785,7 +785,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-[9px]">
                             <!-- Warna & Bentuk -->
                             <div class="bg-white dark:bg-slate-800 p-1.5 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
-                                <span class="font-bold block mb-0.5 text-slate-850 dark:text-white">🎨 Adik: Warna & Bentuk</span>
+                                <span class="font-bold block mb-0.5 text-slate-855 dark:text-white">🎨 Adik: Warna & Bentuk</span>
                                 <div class="flex items-center justify-between text-[8px] mb-0.5 text-slate-600 dark:text-slate-200">
                                     <span>Mudah: <b id="pstats-color-easy-text" class="font-black text-emerald-600 dark:text-emerald-400">0%</b></span>
                                     <span>Sedang: <b id="pstats-color-medium-text" class="font-black text-amber-500 dark:text-yellow-300">0%</b></span>
@@ -800,7 +800,7 @@
 
                             <!-- Suara Hewan -->
                             <div class="bg-white dark:bg-slate-800 p-1.5 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
-                                <span class="font-bold block mb-0.5 text-slate-850 dark:text-white">🐯 Adik: Pengenalan Suara</span>
+                                <span class="font-bold block mb-0.5 text-slate-855 dark:text-white">🐯 Adik: Pengenalan Suara</span>
                                 <div class="flex items-center justify-between text-[8px] mb-0.5 text-slate-600 dark:text-slate-200">
                                     <span>Mudah: <b id="pstats-animal-easy-text" class="font-black text-emerald-600 dark:text-emerald-400">0%</b></span>
                                     <span>Sedang: <b id="pstats-animal-medium-text" class="font-black text-amber-500 dark:text-yellow-300">0%</b></span>
@@ -815,7 +815,7 @@
 
                             <!-- Logika Berhitung -->
                             <div class="bg-white dark:bg-slate-800 p-1.5 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
-                                <span class="font-bold block mb-0.5 text-slate-850 dark:text-white">🔢 Kakak: Berhitung Cerdas</span>
+                                <span class="font-bold block mb-0.5 text-slate-855 dark:text-white">🔢 Kakak: Berhitung Cerdas</span>
                                 <div class="flex items-center justify-between text-[8px] mb-0.5 text-slate-600 dark:text-slate-200">
                                     <span>Mudah: <b id="pstats-count-easy-text" class="font-black text-emerald-600 dark:text-emerald-400">0%</b></span>
                                     <span>Sedang: <b id="pstats-count-medium-text" class="font-black text-amber-500 dark:text-yellow-300">0%</b></span>
@@ -830,7 +830,7 @@
 
                             <!-- Memori & Konsentrasi -->
                             <div class="bg-white dark:bg-slate-800 p-1.5 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
-                                <span class="font-bold block mb-0.5 text-slate-850 dark:text-white">🧠 Kakak: Memori & Konsentrasi</span>
+                                <span class="font-bold block mb-0.5 text-slate-855 dark:text-white">🧠 Kakak: Memori & Konsentrasi</span>
                                 <div class="flex items-center justify-between text-[8px] mb-0.5 text-slate-600 dark:text-slate-200">
                                     <span>Mudah: <b id="pstats-memory-easy-text" class="font-black text-emerald-600 dark:text-emerald-400">0%</b></span>
                                     <span>Sedang: <b id="pstats-memory-medium-text" class="font-black text-amber-500 dark:text-yellow-300">0%</b></span>
@@ -891,7 +891,7 @@
         </div>
     </div>
 
-    <!-- MODAL 7: KIKI MENGAJAK ISTIRAHAT (DENGAN TINGGI POPUP DIKUNCI SECARA PRESISI) -->
+    <!-- MODAL 7: KIKI MENGAJAK ISTIRAHAT -->
     <div id="playtime-limit-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md flex items-center justify-center p-4 z-50 hidden">
         <div class="theme-adaptive-modal bg-white text-slate-800 rounded-3xl p-5 md:p-6 max-w-md w-full shadow-2xl border-4 border-amber-400 text-center relative font-sans transform transition-all duration-300 scale-95 max-h-[85vh] overflow-hidden flex flex-col justify-between">
             <div class="min-h-0 flex flex-col items-center overflow-y-auto pr-1">
@@ -1708,7 +1708,7 @@
             const charTitleText = document.getElementById('char-title-text');
             const charSubText = document.getElementById('char-subtitle-text');
             const diffSettingLabel = document.getElementById('diff-setting-label');
-            const rekorAdikBox = document.getElementById('rekor-adik-box');
+            const rekorAdikBox = document.getElementById('rekor-adip-box');
             const rekorKakakBox = document.getElementById('rekor-kakak-box');
 
             if (theme.id === 'night') {
@@ -2203,6 +2203,7 @@
             speakText(`Selamat bermain ${childNickname}! Ayo kumpulkan balon dan bintang sebanyak-banyaknya!`);
         }
 
+        // --- GANTI PROFESI PEMAIN ---
         function changePlayerProfession(playerIdx, profId) {
             initAudio(); 
             playSound('click');
@@ -2235,7 +2236,7 @@
             speakText(randomQuote);
         }
 
-        // --- SELEKSI LEVEL & KESULITAN (DIPERBARUI DENGAN STRUKTUR 3 PANEL VISUAL BARU) ---
+        // --- SELEKSI LEVEL & KESULITAN ---
         function selectDifficulty(diff) {
             initAudio(); 
             playSound('click');
@@ -2784,7 +2785,7 @@
                         fruitEl.style.left = `${5 + idx * 25}%`;
                         fruitEl.style.animationDelay = `${idx * 0.8}s`; 
                         fruitEl.style.animationDuration = speedClass; 
-                        fruitEl.textContentfr.emoji;
+                        fruitEl.textContent = fr.emoji;
                         fruitEl.onclick = () => {
                             initAudio();
                             fruitEl.style.display = 'none'; 
